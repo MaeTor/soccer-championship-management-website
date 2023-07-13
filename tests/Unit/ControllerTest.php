@@ -37,9 +37,6 @@ class ControllerTest extends TestCase
     public function testShowTeam()
     {
         $this->mock(Repository::class, function ($mock) {
-    }
-        /*$this->mock(Repository::class, function ($mock) {
-            $data = new Data();
             $mock->shouldReceive('rankingRow')->with(4)->once()->andReturn([
                 'rank' => 2,
                 'name' => 'Lyon',
@@ -53,6 +50,12 @@ class ControllerTest extends TestCase
                 'goal_difference' => 14,
                 'points' => 63
             ]);
+
+        }
+    }
+        /*$this->mock(Repository::class, function ($mock) {
+            $data = new Data();
+
             $mock->shouldReceive('teamMatches')->with(4)->once()->andReturn([
                 [
                     'id' => 7,
