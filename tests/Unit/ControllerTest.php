@@ -31,13 +31,8 @@ class ControllerTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
         $response->assertSeeTextInOrder(['N°', 'Équipe', 'MJ', 'G', 'N', 'P', 'BP', 'BC', 'DB', 'PTS']);
-
-
-        /*
-
-        $response->assertSeeTextInOrder(['N°', 'Équipe', 'MJ', 'G', 'N', 'P', 'BP', 'BC', 'DB', 'PTS']);
         $response->assertSeeTextInOrder([2, 'Lyon', 38, 19, 6, 13, 111, 97, 14, 63]);
-    }*/
+    }
 
     public function testShowTeam()
     {
