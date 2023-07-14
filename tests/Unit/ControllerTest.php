@@ -51,11 +51,6 @@ class ControllerTest extends TestCase
                 'points' => 63
             ]);
 
-        }
-    }
-        /*$this->mock(Repository::class, function ($mock) {
-            $data = new Data();
-
             $mock->shouldReceive('teamMatches')->with(4)->once()->andReturn([
                 [
                     'id' => 7,
@@ -68,6 +63,13 @@ class ControllerTest extends TestCase
                     'name1' => 'Angers'
                 ]
             ]);
+
+        }
+    }
+        /*$this->mock(Repository::class, function ($mock) {
+            $data = new Data();
+
+
         });
             $response = $this->get('/teams/4');
             $response->assertStatus(200);
