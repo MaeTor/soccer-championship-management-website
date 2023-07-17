@@ -187,7 +187,7 @@ class Repository
         $rowteam =DB::table('ranking')
             ->join('teams','ranking.team_id','=','teams.id')
             ->where('ranking.team_id',$teamId)
-            ->get(['ranking.*', 'teams.name as name']);
+            ->first(['ranking.*', 'teams.name as name']); // Utilisation de 'first()' au lieu de 'get()'
 
         if ( !$rowteam ){
             throw new Exception('Équipe inconnue');
