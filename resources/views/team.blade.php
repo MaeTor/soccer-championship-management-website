@@ -20,20 +20,18 @@
             </thead>
             <tbody>
             <!-- La ligne de l'équipe -->
-            @foreach($rowTeam as $line)
                 <tr>
-                    <th>{{$line->position}}</th>
-                    <th><a href="{{Route('teams.show', ['teamId' => $line->team_id] ) }}" class="text-blue-500">{{$line->name}}</a></th>
-                    <th>{{$line->match_played_count}}</th>
-                    <th>{{$line->match_won_count}}</th>
-                    <th>{{$line->draw_count}}</th>
-                    <th>{{$line->match_lost_count}}</th>
-                    <th>{{$line->goal_for_count}}</th>
-                    <th>{{$line->goal_against_count}}</th>
-                    <th>{{$line->goal_difference}}</th>
-                    <th>{{$line->points}}</th>
+                    <th>{{$rowTeam->position}}</th>
+                    <th><a href="{{Route('teams.show', ['teamId' => $rowTeam->team_id] ) }}" class="text-blue-500">{{$rowTeam->name}}</a></th>
+                    <th>{{$rowTeam->match_played_count}}</th>
+                    <th>{{$rowTeam->match_won_count}}</th>
+                    <th>{{$rowTeam->draw_count}}</th>
+                    <th>{{$rowTeam->match_lost_count}}</th>
+                    <th>{{$rowTeam->goal_for_count}}</th>
+                    <th>{{$rowTeam->goal_against_count}}</th>
+                    <th>{{$rowTeam->goal_difference}}</th>
+                    <th>{{$rowTeam->points}}</th>
                 </tr>
-            @endforeach
             </tbody>
         </table>
         <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
