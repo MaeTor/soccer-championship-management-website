@@ -21,16 +21,16 @@
             <tbody>
             <!-- La ligne de l'équipe -->
                 <tr>
-                    <th>{{$rowTeam->position}}</th>
-                    <th><a href="{{Route('teams.show', ['teamId' => $rowTeam->team_id] ) }}" class="text-blue-500">{{$rowTeam->name}}</a></th>
-                    <th>{{$rowTeam->match_played_count}}</th>
-                    <th>{{$rowTeam->match_won_count}}</th>
-                    <th>{{$rowTeam->draw_count}}</th>
-                    <th>{{$rowTeam->match_lost_count}}</th>
-                    <th>{{$rowTeam->goal_for_count}}</th>
-                    <th>{{$rowTeam->goal_against_count}}</th>
-                    <th>{{$rowTeam->goal_difference}}</th>
-                    <th>{{$rowTeam->points}}</th>
+                    <th>{{$rowTeam['position']}}</th>
+                    <th><a href="{{Route('teams.show', ['teamId' => $rowTeam['team_id']] ) }}" class="text-blue-500">{{$rowTeam['name']}}</a></th>
+                    <th>{{$rowTeam['match_played_count']}}</th>
+                    <th>{{$rowTeam['match_won_count']}}</th>
+                    <th>{{$rowTeam['draw_count']}}</th>
+                    <th>{{$rowTeam['match_lost_count']}}</th>
+                    <th>{{$rowTeam['goal_for_count']}}</th>
+                    <th>{{$rowTeam['goal_against_count']}}</th>
+                    <th>{{$rowTeam['goal_difference']}}</th>
+                    <th>{{$rowTeam['points']}}</th>
                 </tr>
             </tbody>
         </table>
