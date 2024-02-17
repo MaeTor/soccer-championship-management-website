@@ -5,13 +5,18 @@ use App\Repositories\Ranking;
 use Tests\TestCase;
 class RankingTest extends TestCase
 {
-    function testGoalDifference():void
+    public function setUp(): void
     {
-        $ranking = new Ranking();
-        $this->assertEquals($ranking->goalDifference(2, 3), -1);
-        $this->assertEquals($ranking->goalDifference(0, 0), 0);
-        $this->assertEquals($ranking->goalDifference(4, 1), 3);
+        parent::setUp();
+        $this->ranking = new Ranking();
 
+    }
+    function testGoalDifference():void
+
+    {
+        $this->assertEquals($this->ranking->goalDifference(2, 3), -1);
+        $this->assertEquals($this->ranking->goalDifference(0, 0), 0);
+        $this->assertEquals($this->ranking->goalDifference(4, 1), 3);
     }
 
 }
