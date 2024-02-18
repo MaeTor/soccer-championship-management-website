@@ -8,4 +8,9 @@ class Ranking
     {
         return $goalFor - $goalAgainst;
     }
+
+    function points(int $matchWonCount, int $drawMatchCount): int
+    {
+        return $matchWonCount*3+ $drawMatchCount;
+    }
 }
