@@ -9,7 +9,12 @@ class RankingTest extends TestCase
     {
         parent::setUp();
         $this->ranking = new Ranking();
-
+        $this->match0 = ['id' => 123, 'team0' => 1, 'team1' => 3, 'score0' => 3, 'score1' => 5,
+            'date' => '2048-01-01 00:00:00'];
+        $this->match1 = ['id' => 231, 'team0' => 4, 'team1' => 2, 'score0' => 2, 'score1' => 2,
+            'date' => '2048-01-01 00:00:00'];
+        $this->match2 = ['id' => 222, 'team0' => 3, 'team1' => 2, 'score0' => 1, 'score1' => 3,
+            'date' => '2048-01-01 00:00:00'];
     }
     function testGoalDifference():void
 
