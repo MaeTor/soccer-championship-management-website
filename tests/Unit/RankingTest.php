@@ -32,5 +32,17 @@ class RankingTest extends TestCase
         $this->assertEquals($this->ranking->points(1, 2), 5);
     }
 
+    function testTeamWinsMatch(): void
+    {
+        $this->assertNotTrue($this->ranking->teamWinsMatch(1, $this->match0));
+        $this->assertTrue($this->ranking->teamWinsMatch(3, $this->match0));
+        $this->assertNotTrue($this->ranking->teamWinsMatch(4, $this->match1));
+        $this->assertNotTrue($this->ranking->teamWinsMatch(2, $this->match1));
+        $this->assertNotTrue($this->ranking->teamWinsMatch(3, $this->match2));
+        $this->assertTrue($this->ranking->teamWinsMatch(2, $this->match2));
+        $this->assertNotTrue($this->ranking->teamWinsMatch(4, $this->match0));
+    }
+
+
 
 }
