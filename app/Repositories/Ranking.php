@@ -16,7 +16,9 @@ class Ranking
 
     function teamWinsMatch(int $teamId, array $match): bool
     {
-        if ($teamId == $match['team0']) {
+
+        return ($teamId == $match['team0'] && $match['score0'] >$match['score1']) || ($teamId == $match['team1'] && $match['score1'] >$match['score0'] );
+       /* if ($teamId == $match['team0']) {
             return $match['score0'] > $match['score1'];
         }
 
@@ -24,7 +26,7 @@ class Ranking
             return $match['score1'] > $match['score0'];
         }
 
-        return false; // Return false if the team ID doesn't match either team
+        return false; // Return false if the team ID doesn't match either team */
     }
     function teamLosesMatch(int $teamId, array $match): bool
     {
