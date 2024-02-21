@@ -57,4 +57,11 @@ class Ranking
 //             return false;
         }
 
+    function goalForCountDuringAMatch(int $teamId, array $match): int {
+        if( $teamId == $match['team0']) return $match['score0'];
+        else if( $teamId == $match['team1']) return $match['score1'];
+        return 0;
+
+    }
+
 }
