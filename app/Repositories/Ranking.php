@@ -44,15 +44,17 @@ class Ranking
     }
         function teamDrawsMatch(int $teamId, array $match): bool
         {
-             if($teamId == $match['team0']){
-                 if($match['score0'] == $match['score1'] ) return true;
-                 else return false;
-             }
-             if($teamId == $match['team1']){
-                 if($match['score1'] == $match['score0'] ) return true;
-                 else return false;
-             }
-             return false;
+            return ($teamId == $match['team0'] && $match['score1'] == $match['score0']) || ($teamId == $match['team1'] && $match['score1'] == $match['score0'] );
+
+//             if($teamId == $match['team0']){
+//                 if($match['score0'] == $match['score1'] ) return true;
+//                 else return false;
+//             }
+//             if($teamId == $match['team1']){
+//                 if($match['score1'] == $match['score0'] ) return true;
+//                 else return false;
+//             }
+//             return false;
         }
 
 }
