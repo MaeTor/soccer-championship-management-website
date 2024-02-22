@@ -71,6 +71,16 @@ class RankingTest extends TestCase
         $this->assertEquals($this->ranking->goalForCountDuringAMatch(4, $this->match0), 0);
     }
 
+    function testGoalAgainstCountDuringAMatch(): void
+    {
+        $this->assertEquals($this->ranking->goalAgainstCountDuringAMatch(1, $this->match0),
+            5);
+        $this->assertEquals($this->ranking->goalAgainstCountDuringAMatch(3, $this->match0),
+            3);
+        $this->assertEquals($this->ranking->goalAgainstCountDuringAMatch(4, $this->match0),
+            0);
+    }
+
 
 
 }
