@@ -64,4 +64,11 @@ class Ranking
 
     }
 
+    function goalAgainstCountDuringAMatch(int $teamId, array $match): int {
+        if( $teamId == $match['team0']) return $match['score1'];
+        else if( $teamId == $match['team1']) return $match['score0'];
+        return 0;
+
+    }
+
 }
