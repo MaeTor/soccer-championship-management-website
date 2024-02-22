@@ -64,6 +64,13 @@ class RankingTest extends TestCase
         $this->assertNotTrue($this->ranking->teamDrawsMatch(4, $this->match0));
     }
 
+    function testGoalForCountDuringAMatch(): void
+    {
+        $this->assertEquals($this->ranking->goalForCountDuringAMatch(1, $this->match0), 3);
+        $this->assertEquals($this->ranking->goalForCountDuringAMatch(3, $this->match0), 5);
+        $this->assertEquals($this->ranking->goalForCountDuringAMatch(4, $this->match0), 0);
+    }
+
 
 
 }
