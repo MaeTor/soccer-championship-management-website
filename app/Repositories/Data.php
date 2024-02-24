@@ -415,4 +415,30 @@ class Data
             ['id' => 380, 'team0' => 14, 'team1' => 3, 'score0' => 0, 'score1' => 5, 'date' => '2049-05-03 00:00:00']
         ];
     }
+
+    function expectedUnsortedRanking()
+    {
+        return [
+            ['team_id' => 1, 'match_played_count' => 38, 'match_won_count' => 22, 'match_lost_count' => 10, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 92, 'goal_difference' => 19, 'points' => 72],
+            ['team_id' => 2, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 91, 'goal_against_count' => 68, 'goal_difference' => 23, 'points' => 61],
+            ['team_id' => 3, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 13, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 97, 'goal_difference' => 14, 'points' => 63],
+            ['team_id' => 4, 'match_played_count' => 38, 'match_won_count' => 18, 'match_lost_count' => 14, 'draw_count' => 6, 'goal_for_count' => 107, 'goal_against_count' => 90, 'goal_difference' => 17, 'points' => 60],
+            ['team_id' => 5, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 18, 'draw_count' => 6, 'goal_for_count' => 94, 'goal_against_count' => 92, 'goal_difference' => 2, 'points' => 48],
+            ['team_id' => 6, 'match_played_count' => 38, 'match_won_count' => 16, 'match_lost_count' => 17, 'draw_count' => 5, 'goal_for_count' => 95, 'goal_against_count' => 98, 'goal_difference' => -3, 'points' => 53],
+            ['team_id' => 7, 'match_played_count' => 38, 'match_won_count' => 17, 'match_lost_count' => 18, 'draw_count' => 3, 'goal_for_count' => 85, 'goal_against_count' => 105, 'goal_difference' => -20, 'points' => 54],
+            ['team_id' => 8, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 94, 'goal_against_count' => 88, 'goal_difference' => 6, 'points' => 61],
+            ['team_id' => 9, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 86, 'goal_against_count' => 80, 'goal_difference' => 6, 'points' => 61],
+            ['team_id' => 10, 'match_played_count' => 38, 'match_won_count' => 12, 'match_lost_count' => 20, 'draw_count' => 6, 'goal_for_count' => 93, 'goal_against_count' => 107, 'goal_difference' => -14, 'points' => 42],
+            ['team_id' => 11, 'match_played_count' => 38, 'match_won_count' => 9, 'match_lost_count' => 24, 'draw_count' => 5, 'goal_for_count' => 89, 'goal_against_count' => 124, 'goal_difference' => -35, 'points' => 32],
+            ['team_id' => 12, 'match_played_count' => 38, 'match_won_count' => 17, 'match_lost_count' => 14, 'draw_count' => 7, 'goal_for_count' => 112, 'goal_against_count' => 94, 'goal_difference' => 18, 'points' => 58],
+            ['team_id' => 13, 'match_played_count' => 38, 'match_won_count' => 16, 'match_lost_count' => 13, 'draw_count' => 9, 'goal_for_count' => 94, 'goal_against_count' => 85, 'goal_difference' => 9, 'points' => 57],
+            ['team_id' => 14, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 21, 'draw_count' => 3, 'goal_for_count' => 88, 'goal_against_count' => 107, 'goal_difference' => -19, 'points' => 45],
+            ['team_id' => 15, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 18, 'draw_count' => 6, 'goal_for_count' => 94, 'goal_against_count' => 103, 'goal_difference' => -9, 'points' => 48],
+            ['team_id' => 16, 'match_played_count' => 38, 'match_won_count' => 12, 'match_lost_count' => 19, 'draw_count' => 7, 'goal_for_count' => 78, 'goal_against_count' => 97, 'goal_difference' => -19, 'points' => 43],
+            ['team_id' => 17, 'match_played_count' => 38, 'match_won_count' => 18, 'match_lost_count' => 16, 'draw_count' => 4, 'goal_for_count' => 99, 'goal_against_count' => 96, 'goal_difference' => 3, 'points' => 58],
+            ['team_id' => 18, 'match_played_count' => 38, 'match_won_count' => 16, 'match_lost_count' => 13, 'draw_count' => 9, 'goal_for_count' => 100, 'goal_against_count' => 101, 'goal_difference' => -1, 'points' => 57],
+            ['team_id' => 19, 'match_played_count' => 38, 'match_won_count' => 18, 'match_lost_count' => 15, 'draw_count' => 5, 'goal_for_count' => 104, 'goal_against_count' => 94, 'goal_difference' => 10, 'points' => 59],
+            ['team_id' => 20, 'match_played_count' => 38, 'match_won_count' => 15, 'match_lost_count' => 16, 'draw_count' => 7, 'goal_for_count' => 86, 'goal_against_count' => 93, 'goal_difference' => -7, 'points' => 52]
+        ];
+    }
 }
