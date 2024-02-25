@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 use App\Repositories\Ranking;
+use App\Repositories\Data;
 use Tests\TestCase;
 class RankingTest extends TestCase
 {
@@ -15,6 +16,8 @@ class RankingTest extends TestCase
             'date' => '2048-01-01 00:00:00'];
         $this->match2 = ['id' => 222, 'team0' => 3, 'team1' => 2, 'score0' => 1, 'score1' => 3,
             'date' => '2048-01-01 00:00:00'];
+        $this->data = new Data();
+
     }
     function testGoalDifference():void
 
