@@ -71,4 +71,14 @@ class Ranking
 
     }
 
+    function goalForCount(int $teamId, array $matches): int
+    {
+        $sumScors = 0;
+        foreach ($matches as $match) {
+            if($teamId == $match['team0']) $sumScors += $match['score0'];
+            else if($teamId == $match['team1']) $sumScors += $match['score1'];
+        }
+        return $sumScors;
+    }
+
 }
