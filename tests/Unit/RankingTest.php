@@ -84,6 +84,14 @@ class RankingTest extends TestCase
             0);
     }
 
+    function testGoalForCount(): void
+    {
+        foreach ($this->data->expectedUnsortedRanking() as $row) {
+            $this->assertEquals($this->ranking->goalForCount($row['team_id'], $this->data->matches()), $row['goal_for_count']);
+        }
+
+    }
+
 
 
 }
