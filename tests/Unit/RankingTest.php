@@ -92,6 +92,13 @@ class RankingTest extends TestCase
 
     }
 
+    function testGoalAgainstCount(): void
+    {
+        foreach ($this->data->expectedUnsortedRanking() as $row) {
+            $this->assertEquals($this->ranking->goalAgainstCount($row['team_id'], $this->data->matches()), $row['goal_against_count']);
+        }
+    }
+
 
 
 }
