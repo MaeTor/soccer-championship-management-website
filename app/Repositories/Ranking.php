@@ -93,4 +93,12 @@ class Ranking
 
     }
 
+    function matchWonCount(int $teamId, array $matches): int
+    {   $count = 0;
+        foreach ($matches as $match) {
+            if($this->teamWinsMatch($teamId,$match)) $count+=1;
+        }
+        return $count;
+    }
+
 }
