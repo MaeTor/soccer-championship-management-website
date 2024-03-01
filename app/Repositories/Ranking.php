@@ -110,4 +110,13 @@ class Ranking
         return $count;
     }
 
+    function drawMatchCount(int $teamId, array $matches): int
+    {
+        $count = 0;
+        foreach ($matches as $match) {
+            if($this->teamDrawsMatch($teamId,$match)) $count+=1;
+        }
+        return $count;
+    }
+
 }
