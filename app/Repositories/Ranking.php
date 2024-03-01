@@ -101,4 +101,13 @@ class Ranking
         return $count;
     }
 
+    function matchLostCount(int $teamId, array $matches): int
+    {
+        $count = 0;
+        foreach ($matches as $match) {
+            if($this->teamLosesMatch($teamId,$match)) $count+=1;
+        }
+        return $count;
+    }
+
 }
