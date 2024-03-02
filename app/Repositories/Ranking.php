@@ -119,4 +119,19 @@ class Ranking
         return $count;
     }
 
+    function rankingRow(int $teamId, array $matches): array
+    {
+        return [
+            'team_id'            => $teamId,
+            'match_played_count' => $this->matchWonCount($teamId,$matches)+ $this->matchLostCount($teamId,$matches)+ $this->drawMatchCount($teamId,$matches) ,
+            'match_won_count'    => $this->matchWonCount($teamId,$matches),
+            'match_lost_count'   => $this->matchLostCount($teamId,$matches),
+            'draw_count'         => $this->drawMatchCount($teamId,$matches),
+            'goal_for_count'     => $this->goalForCount($teamId,$matches),
+            'goal_against_count' => $this->goalAgainstCount($teamId,$matches),
+            'goal_difference'    => $this->goalDifference($this->goalForCount($teamId,$matches),$this->goalAgainstCount($teamId,$matches) ) ,
+            'points'             => $this->points($this->matchWonCount($teamId,$matches),$this->drawMatchCount($teamId,$matches))
+        ];
+    }
+
 }
