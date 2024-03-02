@@ -106,6 +106,13 @@ class RankingTest extends TestCase
         }
     }
 
+    function testMatchLostCount(): void
+    {
+        foreach ($this->data->expectedUnsortedRanking() as $row) {
+            $this->assertEquals($this->ranking->matchLostCount($row['team_id'], $this->data->matches()), $row['match_lost_count']);
+        }
+    }
+
 
 
 }
