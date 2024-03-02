@@ -113,6 +113,13 @@ class RankingTest extends TestCase
         }
     }
 
+    function testMatchDrawCount(): void
+    {
+        foreach ($this->data->expectedUnsortedRanking() as $row) {
+            $this->assertEquals($this->ranking->drawMatchCount($row['team_id'], $this->data->matches()), $row['draw_count']);
+        }
+    }
+
 
 
 }
