@@ -144,4 +144,11 @@ class Ranking
         return $result;
     }
 
+    static function compareRankingRow(array $row1, array $row2): int
+    {
+        if( ($row1['points'] > $row2['points'])|| ($row1['points'] == $row2['points'] && $row1['goal_difference'] > $row2['goal_difference']  ) ||($row1['points'] == $row2['points'] && $row1['goal_difference'] == $row2['goal_difference'] && $row1['goal_for_count'] > $row2['goal_for_count'] )  ) return -1;
+        elseif( ($row1['points'] < $row2['points'])|| ($row1['points'] == $row2['points'] && $row1['goal_difference'] < $row2['goal_difference']  ) ||($row1['points'] == $row2['points'] && $row1['goal_difference'] == $row2['goal_difference'] && $row1['goal_for_count'] < $row2['goal_for_count'] )  ) return 1;
+        return 0;
+    }
+
 }
