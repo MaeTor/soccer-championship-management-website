@@ -120,6 +120,13 @@ class RankingTest extends TestCase
         }
     }
 
+    function testRankingRow(): void
+    {
+        foreach ($this->data->expectedUnsortedRanking() as $row) {
+            $this->assertEquals($this->ranking->rankingRow($row['team_id'], $this->data->matches()), $row);
+        }
+    }
+
 
 
 }
