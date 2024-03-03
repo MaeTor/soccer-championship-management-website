@@ -127,6 +127,11 @@ class RankingTest extends TestCase
         }
     }
 
+    function testUnsortedRanking(): void
+    {
+        $this->assertEquals($this->ranking->unsortedRanking($this->data->teams(), $this->data->matches()), $this->data->expectedUnsortedRanking());
+    }
+
 
 
 }
