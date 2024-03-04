@@ -151,4 +151,11 @@ class Ranking
         return 0;
     }
 
+    function sortedRanking(array $teams, array $matches): array
+    {
+        $result = $this->unsortedRanking($teams, $matches);
+        usort($result, ['App\Repositories\Ranking', 'compareRankingRow']);
+        return $result;
+    }
+
 }
