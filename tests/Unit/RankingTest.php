@@ -143,6 +143,12 @@ class RankingTest extends TestCase
         $this->assertLessThan($this->ranking->compareRankingRow(['points' => 4,'goal_difference'=>3, 'goal_for_count'=>3],['points' => 4,'goal_difference'=>3, 'goal_for_count'=>4]), 0);
     }
 
+    function testSortedRanking(): void
+    {
+        $this->assertEquals($this->ranking->sortedRanking($this->data->teams(), $this->data->matches()),
+        $this->data->expectedSortedRanking());
+    }
+
 
 
 }
