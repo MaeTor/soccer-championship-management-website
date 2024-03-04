@@ -134,4 +134,14 @@ class Ranking
         ];
     }
 
+    function unsortedRanking(array $teams, array $matches): array
+    {
+        $result =[];
+
+        foreach ($teams as $team){
+            $result[]=$this->rankingRow($team['id'], $matches);
+        }
+        return $result;
+    }
+
 }
