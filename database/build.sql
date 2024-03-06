@@ -1,14 +1,14 @@
 CREATE TABLE teams(
-                      id INTEGER PRIMARY KEY AUTOINCREMENT,
+                      id int PRIMARY KEY AUTO_INCREMENT,
                       name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE matches(
-    id     INTEGER PRIMARY KEY AUTOINCREMENT,
-    team0  INTEGER NOT NULL,
-    team1  INTEGER NOT NULL,
-    score0 INTEGER NOT NULL,
-    score1 INTEGER NOT NULL,
+    id     int PRIMARY KEY AUTO_INCREMENT,
+    team0  int NOT NULL,
+    team1  int NOT NULL,
+    score0 int NOT NULL,
+    score1 int NOT NULL,
     date   DATETIME,
     FOREIGN KEY (team0) REFERENCES teams(id),
     FOREIGN KEY (team1) REFERENCES teams(id),
@@ -16,18 +16,17 @@ CREATE TABLE matches(
     CHECK(team0 != team1)
     );
 
-CREATE TABLE ranking
-(
-    team_id            INTEGER PRIMARY KEY,
-    rank               INTEGER NOT NULL,
-    match_played_count INTEGER NOT NULL,
-    match_won_count    INTEGER NOT NULL,
-    match_lost_count   INTEGER NOT NULL,
-    draw_count         INTEGER NOT NULL,
-    goal_for_count     INTEGER NOT NULL,
-    goal_against_count INTEGER NOT NULL,
-    goal_difference    INTEGER NOT NULL,
-    points             INTEGER NOT NULL,
+CREATE TABLE ranking(
+    team_id            int PRIMARY KEY,
+    rank               int NOT NULL,
+    match_played_count int NOT NULL,
+    match_won_count    int NOT NULL,
+    match_lost_count   int NOT NULL,
+    draw_count         int NOT NULL,
+    goal_for_count     int NOT NULL,
+    goal_against_count int NOT NULL,
+    goal_difference    int NOT NULL,
+    points             int NOT NULL,
     FOREIGN KEY (team_id) REFERENCES teams(id),
     UNIQUE(rank)
 );
