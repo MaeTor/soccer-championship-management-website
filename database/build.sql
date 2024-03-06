@@ -18,7 +18,7 @@ CREATE TABLE matches(
 
 CREATE TABLE ranking(
     team_id int PRIMARY KEY,
-    rank int NOT NULL,
+    position int NOT NULL,
     match_played_count int NOT NULL,
     match_won_count int NOT NULL,
     match_lost_count int NOT NULL,
