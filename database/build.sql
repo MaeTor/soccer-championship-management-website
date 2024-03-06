@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS ranking;
+DROP TABLE IF EXISTS matches;
+DROP TABLE IF EXISTS teams;
+
 CREATE TABLE teams(
                       id int PRIMARY KEY AUTO_INCREMENT,
                       name VARCHAR(50) NOT NULL
@@ -17,16 +21,16 @@ CREATE TABLE matches(
     );
 
 CREATE TABLE ranking(
-    team_id            int PRIMARY KEY,
-    rank               int NOT NULL,
+    team_id int PRIMARY KEY,
+    rank int NOT NULL,
     match_played_count int NOT NULL,
-    match_won_count    int NOT NULL,
-    match_lost_count   int NOT NULL,
-    draw_count         int NOT NULL,
-    goal_for_count     int NOT NULL,
+    match_won_count int NOT NULL,
+    match_lost_count int NOT NULL,
+    draw_count int NOT NULL,
+    goal_for_count int NOT NULL,
     goal_against_count int NOT NULL,
-    goal_difference    int NOT NULL,
-    points             int NOT NULL,
+    goal_difference int NOT NULL,
+    points int NOT NULL,
     FOREIGN KEY (team_id) REFERENCES teams(id),
     UNIQUE(rank)
 );
