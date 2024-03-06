@@ -27,5 +27,7 @@ CREATE TABLE ranking
     goal_for_count     INTEGER NOT NULL,
     goal_against_count INTEGER NOT NULL,
     goal_difference    INTEGER NOT NULL,
-    points             INTEGER NOT NULL
+    points             INTEGER NOT NULL,
+    FOREIGN KEY (team_id) REFERENCES teams(id),
+    UNIQUE(rank)
 );
