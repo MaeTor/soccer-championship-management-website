@@ -19,7 +19,7 @@ CREATE TABLE matches(
 CREATE TABLE ranking
 (
     team_id            INTEGER PRIMARY KEY,
-    rank               INTEGER NOT NULL,
+    position               INTEGER NOT NULL,
     match_played_count INTEGER NOT NULL,
     match_won_count    INTEGER NOT NULL,
     match_lost_count   INTEGER NOT NULL,
