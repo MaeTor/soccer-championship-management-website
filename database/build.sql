@@ -32,5 +32,5 @@ CREATE TABLE ranking(
     goal_difference int NOT NULL,
     points int NOT NULL,
     FOREIGN KEY (team_id) REFERENCES teams(id),
-    UNIQUE(rank)
+    UNIQUE(position)
 );
