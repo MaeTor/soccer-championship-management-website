@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS ranking;
+DROP TABLE IF EXISTS matches;
+DROP TABLE IF EXISTS teams;
+
 CREATE TABLE teams(
                       id int PRIMARY KEY AUTO_INCREMENT,
                       name VARCHAR(50) NOT NULL
