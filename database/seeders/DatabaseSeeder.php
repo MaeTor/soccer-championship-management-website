@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Repositories\Repository;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         touch('database/database.sqlite');
+        $repository = new Repository();
+        $repository->createDatabase();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
