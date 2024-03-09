@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         touch('database/database.sqlite');
         $repository = new Repository();
         $repository->createDatabase();
+        $repository->insertTeam(['name' => 'Marseille']);
+        $repository->insertTeam(['name' => 'Nice']);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
