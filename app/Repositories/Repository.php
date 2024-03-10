@@ -21,5 +21,15 @@ class Repository
     }
 
 
+    function insertMatch(array $match): int
+    {
+        if (array_key_exists('id', $match)) {
+            DB::table('matches')->insert($match);
+            return $match['id'];
+        }
+        return DB::table('matches')->insertGetId($match);
+    }
+
+
 
 }
