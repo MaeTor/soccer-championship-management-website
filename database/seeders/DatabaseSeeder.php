@@ -15,11 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        touch('database/database.sqlite');
+        touch('database/database.mysql');
         $repository = new Repository();
         $repository->createDatabase();
         $repository->insertTeam(['name' => 'Marseille']);
         $repository->insertTeam(['name' => 'Nice']);
+         $repository->insertMatch([ 'team0' => 1, 'team1' => 2, 'score0' => 2, 'score1' => 5, 'date' => '2048-08-03 00:00:00']);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
