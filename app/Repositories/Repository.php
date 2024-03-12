@@ -35,6 +35,11 @@ class Repository
         return DB::table('teams')->orderBy('id')->get()->toArray();
     }
 
+    function matches(): array
+    {
+        return DB::table('matches')->orderBy('id')->get()->toArray();
+    }
+
 
 
 }
