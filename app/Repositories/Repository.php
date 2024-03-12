@@ -30,6 +30,11 @@ class Repository
         return DB::table('matches')->insertGetId($match);
     }
 
+    function teams(): array
+    {
+        return DB::table('teams')->orderBy('id')->get()->toArray();
+    }
+
 
 
 }
