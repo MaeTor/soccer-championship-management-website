@@ -5,6 +5,8 @@ class RepositoryTest extends TestCase
 {
     public function setUp(): void
     {
+        parent::setUp();
     }
+
 
 }
