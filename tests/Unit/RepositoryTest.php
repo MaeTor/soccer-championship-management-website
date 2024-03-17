@@ -13,7 +13,9 @@ class RepositoryTest extends TestCase
         $this->ranking = new Ranking();
         $this->data = new Data();
         $this->repository = new Repository();
+        $this->repository->createDatabase();
     }
+
 
 
 
