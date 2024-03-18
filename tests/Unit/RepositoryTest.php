@@ -16,6 +16,11 @@ class RepositoryTest extends TestCase
         $this->repository->createDatabase();
     }
 
+    function testTeamsAndInsertTeam(): void
+    {
+    }
+
+
 
 
 
