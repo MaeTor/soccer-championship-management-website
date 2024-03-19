@@ -18,7 +18,9 @@ class RepositoryTest extends TestCase
 
     function testTeamsAndInsertTeam(): void
     {
+        $teams = $this->data->teams();
     }
+
 
 
 
