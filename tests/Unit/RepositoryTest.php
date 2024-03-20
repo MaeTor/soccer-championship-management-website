@@ -19,7 +19,9 @@ class RepositoryTest extends TestCase
     function testTeamsAndInsertTeam(): void
     {
         $teams = $this->data->teams();
+        $this->assertEquals($this->repository->insertTeam($teams[4]), 5);
     }
+
 
 
 
