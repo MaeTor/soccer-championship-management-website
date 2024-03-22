@@ -23,6 +23,10 @@ class RepositoryTest extends TestCase
         $this->assertEquals($this->repository->teams(), [$teams[4]]);
     }
 
+    function testMatchesAndInsertMatch(): void
+    {
+    }
+
 
 
 
