@@ -32,8 +32,11 @@ class Repository
 
     function teams(): array
     {
-        return DB::table('teams')->orderBy('id')->get()->toArray();
+        return DB::table('teams')->orderBy('id')->get()->map(function ($team) {
+            return (array) $team;
+        })->toArray();
     }
+
 
     function matches(): array
     {
