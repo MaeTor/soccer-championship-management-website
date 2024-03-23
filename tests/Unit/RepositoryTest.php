@@ -26,7 +26,9 @@ class RepositoryTest extends TestCase
     function testMatchesAndInsertMatch(): void
     {
         $teams = $this->data->teams();
+        $matches = $this->data->matches();
     }
+
 
 
 
