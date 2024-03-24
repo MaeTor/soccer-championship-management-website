@@ -31,6 +31,10 @@ class RepositoryTest extends TestCase
         $matches = $this->data->matches();
         $this->assertEquals($this->repository->insertTeam($teams[6]), 7);
         $this->assertEquals($this->repository->insertTeam($teams[18]), 19);
+        $this->assertEquals($this->repository->insertTeam($teams[10]), 11);
+        $this->assertEquals($this->repository->insertMatch($matches[5]), 6);
+
+
 
 
     }
