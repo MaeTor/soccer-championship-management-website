@@ -40,7 +40,9 @@ class Repository
 
     function matches(): array
     {
-        return DB::table('matches')->orderBy('id')->get()->toArray();
+        return DB::table('matches')->orderBy('id')->get()->map(function ($match) {
+            return (array)$match;
+        })->toArray();
     }
 
 
