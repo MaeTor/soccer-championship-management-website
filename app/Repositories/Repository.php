@@ -56,6 +56,11 @@ class Repository
         }
     }
 
+    function team($teamId): array
+    {
+        return [];
+    }
+
 
 
 }
