@@ -47,7 +47,13 @@ class Repository
 
     function fillDatabase(): void
     {
-        
+        $data = new Data();
+        foreach ($data->teams() as $team) {
+            $this->insertTeam($team);
+        }
+        foreach ($data->matches() as $match) {
+            $this->insertMatch($match);
+        }
     }
 
 
