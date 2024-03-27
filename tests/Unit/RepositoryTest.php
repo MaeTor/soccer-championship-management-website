@@ -45,6 +45,14 @@ class RepositoryTest extends TestCase
         $this->assertEquals($this->repository->matches(), $this->data->matches());
     }
 
+    function testTeam(): void
+    {
+        $this->repository->fillDatabase();
+        foreach ($this->data->teams() as $team) {
+            $this->assertEquals($this->repository->team($team['id']), $team);
+        }
+    }
+
 
 
 
