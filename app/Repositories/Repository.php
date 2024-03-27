@@ -58,7 +58,11 @@ class Repository
 
     function team($teamId): array
     {
-        return [];
+        $team = DB::table('teams')
+            ->where('id', $teamId)
+            ->first();
+
+        return (array) $team;
     }
 
 
