@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 class Repository
@@ -58,11 +59,18 @@ class Repository
 
     function team($teamId): array
     {
-        $team = DB::table('teams')
-            ->where('id', $teamId)
-            ->first();
+            $team =  DB::table('teams')->where('id', $teamId)->get()->toArray();
+            if (empty($team[0])) {
+                throw new Exception('Équipe inconnue');
+            }
+            return $team[0];
 
-        return (array) $team;
+//        $team = DB::table('teams')
+//            ->where('id', $teamId)
+//            ->first();
+//
+//        return (array) $team;
+
     }
 
 
