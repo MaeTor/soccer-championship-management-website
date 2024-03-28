@@ -56,6 +56,8 @@ class RepositoryTest extends TestCase
     function testTeamThrowsExceptionIfTeamDoesNotExist(): void
     {
         $this->repository->fillDatabase();
+        $this->expectException(Exception::class);
+
     }
 
 
