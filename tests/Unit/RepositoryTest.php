@@ -53,6 +53,10 @@ class RepositoryTest extends TestCase
         }
     }
 
+    function testTeamThrowsExceptionIfTeamDoesNotExist(): void
+    {
+        $this->repository->fillDatabase();
+    }
 
 
 
@@ -64,4 +68,6 @@ class RepositoryTest extends TestCase
 
 
 
-}
+
+
+    }
