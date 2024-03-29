@@ -75,6 +75,8 @@ class Repository
 
     function match($matchId): array
     {
+        $match = DB::table('matches')->where('id', $matchId)->get()->toArray();
+
     }
 
 
