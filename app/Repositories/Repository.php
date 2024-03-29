@@ -76,6 +76,10 @@ class Repository
     function match($matchId): array
     {
         $match = DB::table('matches')->where('id', $matchId)->get()->toArray();
+        if (empty($match[0])) {
+            throw new Exception('Match inconnue');
+        }
+
 
     }
 
