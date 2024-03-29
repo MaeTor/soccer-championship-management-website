@@ -79,10 +79,7 @@ class Repository
         if (empty($match[0])) {
             throw new Exception('Match inconnue');
         }
-
-
+        return $match[0];
     }
-
-
 
     }
