@@ -77,7 +77,7 @@ class Repository
     {
         $match = DB::table('matches')->where('id', $matchId)->get()->toArray();
         if (empty($match[0])) {
-            throw new Exception('Match inconnue');
+            throw new Exception('Match inconnu');
         }
         return $match[0];
     }
