@@ -59,7 +59,12 @@ class RepositoryTest extends TestCase
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Équipe inconnue');
         $this->repository->team(10000);
-}
+    }
+
+    function testMatchThrowsExceptionIfMatchDoesNotExist(): void
+    {
+        
+    }
 
 
 
