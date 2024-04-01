@@ -63,7 +63,7 @@ class RepositoryTest extends TestCase
 
     function testMatchThrowsExceptionIfMatchDoesNotExist(): void
     {
-        
+        $this->repository->fillDatabase();
     }
 
 
