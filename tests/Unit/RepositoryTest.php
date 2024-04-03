@@ -65,6 +65,8 @@ class RepositoryTest extends TestCase
     {
         //fill with teams and matches
         $this->repository->fillDatabase();
+
+        $this->expectException(Exception::class);
     }
 
 
