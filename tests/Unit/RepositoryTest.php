@@ -68,6 +68,7 @@ class RepositoryTest extends TestCase
         // Vérifier que l'exception est levée pour un match inexistant
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Match inconnu');
+        $this->repository->match(10000);
     }
 
 
