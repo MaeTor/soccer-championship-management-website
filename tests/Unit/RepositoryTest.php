@@ -65,7 +65,7 @@ class RepositoryTest extends TestCase
     {
         //fill with teams and matches
         $this->repository->fillDatabase();
-
+        // Vérifier que l'exception est levée pour un match inexistant
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Match inconnu');
     }
