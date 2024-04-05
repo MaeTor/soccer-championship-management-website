@@ -63,7 +63,7 @@ class Repository
             if (empty($team[0])) {
                 throw new Exception('Équipe inconnue');
             }
-            return $team[0];
+            return (array)$team[0];
 
 //        $team = DB::table('teams')
 //            ->where('id', $teamId)
