@@ -72,6 +72,12 @@ class RepositoryTest extends TestCase
         $this->repository->match(10000);
     }
 
+    function testMatchIfExists(): void
+    {
+
+    }
+
+
 
 
 
