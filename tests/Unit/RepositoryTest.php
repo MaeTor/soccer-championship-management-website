@@ -78,6 +78,8 @@ class RepositoryTest extends TestCase
         $this->repository->fillDatabase();
         // Récupérer le premier match
         $match = $this->data->matches()[0];
+        // Vérifier que la méthode match retourne le bon match
+
 
 
 
