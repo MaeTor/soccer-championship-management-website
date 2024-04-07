@@ -77,6 +77,8 @@ class RepositoryTest extends TestCase
         // Remplir la base de données avec les équipes et les matchs
         $this->repository->fillDatabase();
         // Récupérer le premier match
+        $match = $this->data->matches()[0];
+
 
 
 
