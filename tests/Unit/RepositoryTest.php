@@ -80,12 +80,6 @@ class RepositoryTest extends TestCase
         $match = $this->data->matches()[0];
         // Vérifier que la méthode match retourne le bon match
         $this->assertEquals($this->repository->match($match['id']), $match);
-
-
-
-
-
-
     }
 
 
