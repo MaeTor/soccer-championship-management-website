@@ -85,6 +85,9 @@ class Repository
     function updateRanking(): void{
         DB::table('ranking')->delete();
         $teams = $this->teams();
+        $matches = $this->matches();
+
+
 
 
 
