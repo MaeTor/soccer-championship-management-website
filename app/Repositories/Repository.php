@@ -83,6 +83,8 @@ class Repository
     }
 
     function updateRanking(): void{
+        DB::table('ranking')->delete();
+
 
 
     }
