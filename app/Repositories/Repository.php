@@ -86,6 +86,8 @@ class Repository
         DB::table('ranking')->delete();
         $teams = $this->teams();
         $matches = $this->matches();
+        $ranking = new Ranking();
+
 
 
 
