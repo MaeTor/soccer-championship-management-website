@@ -88,6 +88,7 @@ class Repository
         $matches = $this->matches();
         $ranking = new Ranking();
         $r = $ranking->sortedRanking($teams, $matches);
+        // Insérer le classement trié dans la table ranking
 
 
 
