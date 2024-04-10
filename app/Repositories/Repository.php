@@ -87,6 +87,8 @@ class Repository
         $teams = $this->teams();
         $matches = $this->matches();
         $ranking = new Ranking();
+        $r = $ranking->sortedRanking($teams, $matches);
+
 
 
 
