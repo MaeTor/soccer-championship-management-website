@@ -84,7 +84,7 @@ class RepositoryTest extends TestCase
 
     function testUpdateRanking(): void
     {
-        
+        $this->repository->updateRanking();
     }
 
 
