@@ -3,6 +3,7 @@
 use App\Repositories\Data;
 use App\Repositories\Ranking;
 use App\Repositories\Repository;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class RepositoryTest extends TestCase
@@ -88,6 +89,8 @@ class RepositoryTest extends TestCase
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
         $this->repository->updateRanking();
+        $ranking = DB::table('ranking')->orderBy('rank')->get()->toArray();
+
 
 
 
