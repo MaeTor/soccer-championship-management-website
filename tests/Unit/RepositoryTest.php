@@ -87,6 +87,8 @@ class RepositoryTest extends TestCase
         $this->repository->updateRanking();
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
+        $this->repository->updateRanking();
+
 
 
     }
