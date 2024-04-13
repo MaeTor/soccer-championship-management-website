@@ -89,7 +89,7 @@ class RepositoryTest extends TestCase
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
         $this->repository->updateRanking();
-        $ranking = DB::table('ranking')->orderBy('rank')->get()->toArray();
+        $ranking = DB::table('ranking')->orderBy('position')->get()->toArray();
         // Vérifier que le classement est correct
         $this->assertEquals($ranking, $this->data->expectedSortedRanking());
     }
