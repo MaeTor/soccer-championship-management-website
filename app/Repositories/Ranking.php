@@ -156,7 +156,7 @@ class Ranking
         $result = $this->unsortedRanking($teams, $matches);
         usort($result, ['App\Repositories\Ranking', 'compareRankingRow']);
         for ($rank = 1; $rank <= count($teams); $rank++) {
-            $result[$rank - 1]['rank'] = $rank;
+            $result[$rank - 1]['position'] = $rank;
         }
         return $result;
     }
