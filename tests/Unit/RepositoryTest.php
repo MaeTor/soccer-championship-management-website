@@ -99,6 +99,10 @@ class RepositoryTest extends TestCase
         $this->assertEquals($ranking, $this->data->expectedSortedRanking());
     }
 
+    function testSortedRanking(): void
+    {
+    }
+
 
 
 
