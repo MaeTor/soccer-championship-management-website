@@ -103,22 +103,7 @@ class RepositoryTest extends TestCase
     {
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
-
+        $this->assertEquals($this->repository->sortedRanking(), $this->data->expectedSortedRankingWithName());
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
+}
