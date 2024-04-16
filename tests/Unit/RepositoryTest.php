@@ -102,6 +102,7 @@ class RepositoryTest extends TestCase
     function testSortedRanking(): void
     {
         $this->repository->fillDatabase();
+        $this->repository->updateRanking();
 
     }
 
