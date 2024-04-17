@@ -94,7 +94,8 @@ class Repository
 
     function sortedRanking(): array
     {
-        
+        return DB::table('ranking')
+        ->join('teams', 'ranking.team_id', '=', 'teams.id');
     }
 
     }
