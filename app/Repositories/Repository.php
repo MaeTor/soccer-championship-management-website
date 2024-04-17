@@ -92,4 +92,9 @@ class Repository
         DB::table('ranking')->insert($r);
     }
 
+    function sortedRanking(): array
+    {
+        
+    }
+
     }
