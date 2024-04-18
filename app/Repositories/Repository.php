@@ -96,7 +96,9 @@ class Repository
     {
         return DB::table('ranking')
         ->join('teams', 'ranking.team_id', '=', 'teams.id')
-            ->orderby('position');
+            ->orderby('position')
+            ->get(['ranking.*', 'teams.name as name'])
+
 
     }
 
