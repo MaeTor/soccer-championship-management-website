@@ -98,8 +98,11 @@ class Repository
         ->join('teams', 'ranking.team_id', '=', 'teams.id')
             ->orderby('position')
             ->get(['ranking.*', 'teams.name as name'])
-
-
+            ->toArray();
     }
+
+
+
+}
 
     }
