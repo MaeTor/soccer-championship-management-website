@@ -474,6 +474,7 @@ class Data
             ['rank' => 1, 'name' => 'Paris', 'team_id' => 1, 'match_played_count' => 38, 'match_won_count' => 22, 'match_lost_count' => 10, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 92, 'goal_difference' => 19, 'points' => 72],
             ['rank' => 2, 'name' => 'Lyon', 'team_id' => 3, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 13, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 97, 'goal_difference' => 14, 'points' => 63],
             ['rank' => 3, 'name' => 'Marseille', 'team_id' => 2, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 91, 'goal_against_count' => 68, 'goal_difference' => 23, 'points' => 61],
+            ['rank' => 4, 'name' => 'Montpellier', 'team_id' => 8, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 94, 'goal_against_count' => 88, 'goal_difference' => 6, 'points' => 61],
 
     }
 }
