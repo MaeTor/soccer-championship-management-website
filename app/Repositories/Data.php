@@ -472,6 +472,7 @@ class Data
     {
         return [
             ['rank' => 1, 'name' => 'Paris', 'team_id' => 1, 'match_played_count' => 38, 'match_won_count' => 22, 'match_lost_count' => 10, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 92, 'goal_difference' => 19, 'points' => 72],
+            ['rank' => 2, 'name' => 'Lyon', 'team_id' => 3, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 13, 'draw_count' => 6, 'goal_for_count' => 111, 'goal_against_count' => 97, 'goal_difference' => 14, 'points' => 63],
 
     }
 }
