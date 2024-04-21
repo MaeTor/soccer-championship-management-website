@@ -477,6 +477,7 @@ class Data
             ['rank' => 4, 'name' => 'Montpellier', 'team_id' => 8, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 94, 'goal_against_count' => 88, 'goal_difference' => 6, 'points' => 61],
             ['rank' => 5, 'name' => 'Bordeaux', 'team_id' => 9, 'match_played_count' => 38, 'match_won_count' => 19, 'match_lost_count' => 15, 'draw_count' => 4, 'goal_for_count' => 86, 'goal_against_count' => 80, 'goal_difference' => 6, 'points' => 61],
             ['rank' => 6, 'name' => 'Toulouse', 'team_id' => 4, 'match_played_count' => 38, 'match_won_count' => 18, 'match_lost_count' => 14, 'draw_count' => 6, 'goal_for_count' => 107, 'goal_against_count' => 90, 'goal_difference' => 17, 'points' => 60],
+            ['rank' => 7, 'name' => 'Nîmes', 'team_id' => 19, 'match_played_count' => 38, 'match_won_count' => 18, 'match_lost_count' => 15, 'draw_count' => 5, 'goal_for_count' => 104, 'goal_against_count' => 94, 'goal_difference' => 10, 'points' => 59],
 
     }
 }
