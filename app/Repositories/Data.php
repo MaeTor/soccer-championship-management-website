@@ -482,6 +482,7 @@ class Data
             ['rank' => 9, 'name' => 'Dijon', 'team_id' => 17, 'match_played_count' => 38, 'match_won_count' => 18, 'match_lost_count' => 16, 'draw_count' => 4, 'goal_for_count' => 99, 'goal_against_count' => 96, 'goal_difference' => 3, 'points' => 58],
             ['rank' => 10, 'name' => 'Le Havre', 'team_id' => 13, 'match_played_count' => 38, 'match_won_count' => 16, 'match_lost_count' => 13, 'draw_count' => 9, 'goal_for_count' => 94, 'goal_against_count' => 85, 'goal_difference' => 9, 'points' => 57],
             ['rank' => 11, 'name' => 'Angers', 'team_id' => 18, 'match_played_count' => 38, 'match_won_count' => 16, 'match_lost_count' => 13, 'draw_count' => 9, 'goal_for_count' => 100, 'goal_against_count' => 101, 'goal_difference' => -1, 'points' => 57],
+            ['rank' => 12, 'name' => 'Strasbourg', 'team_id' => 7, 'match_played_count' => 38, 'match_won_count' => 17, 'match_lost_count' => 18, 'draw_count' => 3, 'goal_for_count' => 85, 'goal_against_count' => 105, 'goal_difference' => -20, 'points' => 54],
 
     }
 }
