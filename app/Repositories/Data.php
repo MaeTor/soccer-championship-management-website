@@ -485,6 +485,7 @@ class Data
             ['rank' => 12, 'name' => 'Strasbourg', 'team_id' => 7, 'match_played_count' => 38, 'match_won_count' => 17, 'match_lost_count' => 18, 'draw_count' => 3, 'goal_for_count' => 85, 'goal_against_count' => 105, 'goal_difference' => -20, 'points' => 54],
             ['rank' => 13, 'name' => 'Nantes', 'team_id' => 6, 'match_played_count' => 38, 'match_won_count' => 16, 'match_lost_count' => 17, 'draw_count' => 5, 'goal_for_count' => 95, 'goal_against_count' => 98, 'goal_difference' => -3, 'points' => 53],
             ['rank' => 14, 'name' => 'Villeurbanne', 'team_id' => 20, 'match_played_count' => 38, 'match_won_count' => 15, 'match_lost_count' => 16, 'draw_count' => 7, 'goal_for_count' => 86, 'goal_against_count' => 93, 'goal_difference' => -7, 'points' => 52],
+            ['rank' => 15, 'name' => 'Nice', 'team_id' => 5, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 18, 'draw_count' => 6, 'goal_for_count' => 94, 'goal_against_count' => 92, 'goal_difference' => 2, 'points' => 48],
 
     }
 }
