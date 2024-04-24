@@ -490,6 +490,8 @@ class Data
             ['rank' => 17, 'name' => 'Gap', 'team_id' => 14, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 21, 'draw_count' => 3, 'goal_for_count' => 88, 'goal_against_count' => 107, 'goal_difference' => -19, 'points' => 45],
             ['rank' => 18, 'name' => 'Grenoble', 'team_id' => 16, 'match_played_count' => 38, 'match_won_count' => 12, 'match_lost_count' => 19, 'draw_count' => 7, 'goal_for_count' => 78, 'goal_against_count' => 97, 'goal_difference' => -19, 'points' => 43],
             ['rank' => 19, 'name' => 'Lille', 'team_id' => 10, 'match_played_count' => 38, 'match_won_count' => 12, 'match_lost_count' => 20, 'draw_count' => 6, 'goal_for_count' => 93, 'goal_against_count' => 107, 'goal_difference' => -14, 'points' => 42],
+            ['rank' => 20, 'name' => 'Rennes', 'team_id' => 11, 'match_played_count' => 38, 'match_won_count' => 9, 'match_lost_count' => 24, 'draw_count' => 5, 'goal_for_count' => 89, 'goal_against_count' => 124, 'goal_difference' => -35, 'points' => 32]
+        ];
 
     }
 }
