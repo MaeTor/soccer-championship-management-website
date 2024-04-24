@@ -488,6 +488,7 @@ class Data
             ['rank' => 15, 'name' => 'Nice', 'team_id' => 5, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 18, 'draw_count' => 6, 'goal_for_count' => 94, 'goal_against_count' => 92, 'goal_difference' => 2, 'points' => 48],
             ['rank' => 16, 'name' => 'Toulon', 'team_id' => 15, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 18, 'draw_count' => 6, 'goal_for_count' => 94, 'goal_against_count' => 103, 'goal_difference' => -9, 'points' => 48],
             ['rank' => 17, 'name' => 'Gap', 'team_id' => 14, 'match_played_count' => 38, 'match_won_count' => 14, 'match_lost_count' => 21, 'draw_count' => 3, 'goal_for_count' => 88, 'goal_against_count' => 107, 'goal_difference' => -19, 'points' => 45],
+            ['rank' => 18, 'name' => 'Grenoble', 'team_id' => 16, 'match_played_count' => 38, 'match_won_count' => 12, 'match_lost_count' => 19, 'draw_count' => 7, 'goal_for_count' => 78, 'goal_against_count' => 97, 'goal_difference' => -19, 'points' => 43],
 
     }
 }
