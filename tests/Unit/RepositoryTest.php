@@ -104,6 +104,8 @@ class RepositoryTest extends TestCase
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
         // Convertir les objets stdClass en tableaux associatifs avant la comparaison
+        $sortedRanking = $this->repository->sortedRanking();
+
 
 
 
