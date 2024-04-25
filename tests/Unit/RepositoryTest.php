@@ -103,13 +103,11 @@ class RepositoryTest extends TestCase
     {
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
+        // Convertir les objets stdClass en tableaux associatifs avant la comparaison
 
-        // Convertir les objets stdClass en tableaux associatifs
-        $ranking = DB::table('ranking')->get()->map(function ($item) {
-            return (array) $item;
-        })->toArray();
 
-        $this->assertEquals($ranking, $this->data->expectedSortedRankingWithName());
+
+        $this->assertEquals($this->repository->sortedRanking(), $this->data->expectedSortedRankingWithName());
     }
 
 
