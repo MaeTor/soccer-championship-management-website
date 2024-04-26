@@ -109,13 +109,7 @@ class RepositoryTest extends TestCase
         $sortedRanking = array_map(function ($item) {
             return (array) $item;
         }, $sortedRanking);
-
-
-
-
-
-
-        $this->assertEquals($this->repository->sortedRanking(), $this->data->expectedSortedRankingWithName());
+        $this->assertEquals($sortedRanking, $this->data->expectedSortedRankingWithName());
     }
 
 
