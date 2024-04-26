@@ -106,6 +106,10 @@ class RepositoryTest extends TestCase
         // Convertir les objets stdClass en tableaux associatifs avant la comparaison
         $sortedRanking = $this->repository->sortedRanking();
         // Si sortedRanking retourne des stdClass, les convertir en tableaux
+        $sortedRanking = array_map(function ($item) {
+            return (array) $item;
+        }, $sortedRanking);
+
 
 
 
