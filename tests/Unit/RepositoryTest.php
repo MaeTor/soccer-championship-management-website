@@ -112,5 +112,11 @@ class RepositoryTest extends TestCase
         $this->assertEquals($sortedRanking, $this->data->expectedSortedRankingWithName());
     }
 
+    function testTeamMatches(): void
+    {
+        
+    }
 
-}
+
+
+    }
