@@ -114,7 +114,8 @@ class RepositoryTest extends TestCase
 
     function testTeamMatches(): void
     {
-        
+        $this->repository->fillDatabase();
+
     }
 
 
