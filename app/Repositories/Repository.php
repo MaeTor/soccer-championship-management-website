@@ -103,7 +103,9 @@ class Repository
 
     function teamMatches($teamId)
     {
-        
+        return DB::table('matches')
+            ->join('teams as t0', 'matches.team0', '=', 't0.id')
+
     }
 
 
