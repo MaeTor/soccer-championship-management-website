@@ -106,6 +106,8 @@ class Repository
         return DB::table('matches')
             ->join('teams as t0', 'matches.team0', '=', 't0.id')
             ->join('teams as t1', 'matches.team1', '=', 't1.id')
+            ->where('team0', $teamId)
+
 
 
     }
