@@ -108,6 +108,8 @@ class Repository
             ->join('teams as t1', 'matches.team1', '=', 't1.id')
             ->where('team0', $teamId)
             ->orWhere('team1', $teamId)
+            ->orderby('date')
+
 
 
 
