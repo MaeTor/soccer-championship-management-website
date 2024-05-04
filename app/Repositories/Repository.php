@@ -109,6 +109,8 @@ class Repository
             ->where('team0', $teamId)
             ->orWhere('team1', $teamId)
             ->orderby('date')
+            ->get(['matches.*', 't0.name as name0', 't1.name as name1'])
+
 
 
 
