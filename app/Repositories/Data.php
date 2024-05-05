@@ -497,6 +497,6 @@ class Data
 
     function expectedMatchesForTeam()
     {
-
+        return [];
     }
 }
