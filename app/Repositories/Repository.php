@@ -112,14 +112,6 @@ class Repository
             ->get(['matches.*', 't0.name as name0', 't1.name as name1'])
             ->toArray();
     }
-
-
-
-
-
-
+    
 
 }
-
-
-    }
