@@ -494,4 +494,9 @@ class Data
         ];
 
     }
+
+    function expectedMatchesForTeam()
+    {
+
+    }
 }
