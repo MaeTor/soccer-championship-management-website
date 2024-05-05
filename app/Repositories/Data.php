@@ -497,6 +497,8 @@ class Data
 
     function expectedMatchesForTeam()
     {
-        return [];
+        return [
+            ['id' => 7, 'team0' => 4, 'team1' => 18, 'score0' => 3, 'score1' => 5, 'date' => '2048-08-03 00:00:00', 'name0' => 'Toulouse', 'name1' => 'Angers'],
+
     }
 }
