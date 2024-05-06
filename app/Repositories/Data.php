@@ -502,6 +502,7 @@ class Data
             ['id' => 18, 'team0' => 14, 'team1' => 4, 'score0' => 0, 'score1' => 1, 'date' => '2048-08-10 00:00:00', 'name0' => 'Gap', 'name1' => 'Toulouse'],
             ['id' => 29, 'team0' => 4, 'team1' => 2, 'score0' => 0, 'score1' => 3, 'date' => '2048-08-17 00:00:00', 'name0' => 'Toulouse', 'name1' => 'Marseille'],
             ['id' => 40, 'team0' => 1, 'team1' => 4, 'score0' => 2, 'score1' => 3, 'date' => '2048-08-24 00:00:00', 'name0' => 'Paris', 'name1' => 'Toulouse'],
+            ['id' => 50, 'team0' => 6, 'team1' => 4, 'score0' => 4, 'score1' => 1, 'date' => '2048-08-31 00:00:00', 'name0' => 'Nantes', 'name1' => 'Toulouse'],
 
     }
 }
