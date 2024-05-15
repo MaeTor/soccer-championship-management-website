@@ -534,6 +534,7 @@ class Data
             ['id' => 332, 'team0' => 8, 'team1' => 4, 'score0' => 0, 'score1' => 5, 'date' => '2049-04-05 00:00:00', 'name0' => 'Montpellier', 'name1' => 'Toulouse'],
             ['id' => 343, 'team0' => 4, 'team1' => 9, 'score0' => 0, 'score1' => 1, 'date' => '2049-04-12 00:00:00', 'name0' => 'Toulouse', 'name1' => 'Bordeaux'],
             ['id' => 354, 'team0' => 19, 'team1' => 4, 'score0' => 2, 'score1' => 3, 'date' => '2049-04-19 00:00:00', 'name0' => 'Nîmes', 'name1' => 'Toulouse'],
+            ['id' => 365, 'team0' => 4, 'team1' => 17, 'score0' => 5, 'score1' => 3, 'date' => '2049-04-26 00:00:00', 'name0' => 'Toulouse', 'name1' => 'Dijon'],
 
     }
 }
