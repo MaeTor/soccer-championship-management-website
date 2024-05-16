@@ -110,8 +110,12 @@ class Repository
             ->orWhere('team1', $teamId)
             ->orderby('date')
             ->get(['matches.*', 't0.name as name0', 't1.name as name1'])
+            ->map(function ($item) {
+                return (array) $item;
+            })
             ->toArray();
     }
-    
+
+
 
 }
