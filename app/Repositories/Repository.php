@@ -5,6 +5,10 @@ namespace App\Repositories;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class Repository
+ * Handles database operations for teams, matches, and rankings.
+ */
 class Repository
 {
     function createDatabase(): void
