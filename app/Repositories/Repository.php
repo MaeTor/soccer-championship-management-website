@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
  */
 class Repository
 {
+    /**
+     * Creates the database using an SQL script.
+     *
+     * @return void
+     */
     function createDatabase(): void
     {
         DB::unprepared(file_get_contents('database/build.sql'));
