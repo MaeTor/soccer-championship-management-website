@@ -21,6 +21,13 @@ class Repository
         DB::unprepared(file_get_contents('database/build.sql'));
     }
 
+    /**
+     * Inserts a team into the database. If an 'id' exists, it is used.
+     *
+     * @param array $team The team data.
+     * @return int The ID of the inserted team.
+     * @throws Exception if the team cannot be inserted.
+     */
     function insertTeam(array $team): int
     {
         if (array_key_exists('id', $team)) {
