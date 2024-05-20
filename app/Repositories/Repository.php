@@ -37,7 +37,13 @@ class Repository
         return DB::table('teams')->insertGetId($team);
     }
 
-
+    /**
+     * Inserts a match into the database. If an 'id' exists, it is used.
+     *
+     * @param array $match The match data.
+     * @return int The ID of the inserted match.
+     * @throws Exception if the match cannot be inserted.
+     */
     function insertMatch(array $match): int
     {
         if (array_key_exists('id', $match)) {
