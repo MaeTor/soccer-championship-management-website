@@ -52,7 +52,11 @@ class Repository
         }
         return DB::table('matches')->insertGetId($match);
     }
-
+    /**
+     * Retrieves all teams from the database.
+     *
+     * @return array List of teams.
+     */
     function teams(): array
     {
         return DB::table('teams')->orderBy('id')->get()->map(function ($team) {
