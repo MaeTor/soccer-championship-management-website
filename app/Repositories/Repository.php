@@ -76,6 +76,11 @@ class Repository
         })->toArray();
     }
 
+    /**
+     * Fills the database with initial data for teams and matches.
+     *
+     * @return void
+     */
     function fillDatabase(): void
     {
         $data = new Data();
