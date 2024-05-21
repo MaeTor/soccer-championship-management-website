@@ -64,7 +64,11 @@ class Repository
         })->toArray();
     }
 
-
+    /**
+     * Retrieves all matches from the database.
+     *
+     * @return array List of matches.
+     */
     function matches(): array
     {
         return DB::table('matches')->orderBy('id')->get()->map(function ($match) {
