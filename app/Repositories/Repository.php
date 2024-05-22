@@ -92,6 +92,13 @@ class Repository
         }
     }
 
+    /**
+     * Retrieves a specific team by its ID.
+     *
+     * @param int $teamId The ID of the team.
+     * @return array The team data.
+     * @throws Exception if the team is not found.
+     */
     function team($teamId): array
     {
             $team =  DB::table('teams')->where('id', $teamId)->get()->toArray();
