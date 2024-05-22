@@ -115,6 +115,13 @@ class Repository
 
     }
 
+    /**
+     * Retrieves a specific match by its ID.
+     *
+     * @param int $matchId The ID of the match.
+     * @return array The match data.
+     * @throws Exception if the match is not found.
+     */
     function match($matchId): array
     {
         $match = DB::table('matches')->where('id', $matchId)->get()->toArray();
