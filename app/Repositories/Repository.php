@@ -146,6 +146,11 @@ class Repository
         DB::table('ranking')->insert($r);
     }
 
+    /**
+     * Retrieves the sorted ranking with team names.
+     *
+     * @return array The sorted ranking.
+     */
     function sortedRanking(): array
     {
         return DB::table('ranking')
