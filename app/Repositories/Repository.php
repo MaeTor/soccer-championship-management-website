@@ -131,6 +131,11 @@ class Repository
         return (array)$match[0];
     }
 
+    /**
+     * Updates the ranking table by recalculating rankings based on teams and matches.
+     *
+     * @return void
+     */
     function updateRanking(): void{
         DB::table('ranking')->delete();
         $teams = $this->teams();
