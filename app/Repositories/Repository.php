@@ -160,6 +160,12 @@ class Repository
             ->toArray();
     }
 
+    /**
+     * Retrieves all matches for a specific team by its ID.
+     *
+     * @param int $teamId The ID of the team.
+     * @return array The list of matches the team is involved in.
+     */
     function teamMatches($teamId)
     {
         return DB::table('matches')
