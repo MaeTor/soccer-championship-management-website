@@ -10,7 +10,9 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
+     * More precisely, this method is responsible for populating the application's database with initial test or default data.
+     * It is executed when running the `php artisan db:seed` command, which is typically used during the development or testing phase
+     * to ensure the database is seeded with data to work with.
      * @return void
      */
     public function run()
