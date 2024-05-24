@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class Repository
  * Handles database operations for teams, matches, and rankings.
+ * Manages datas of the web app
  */
 class Repository
 {
