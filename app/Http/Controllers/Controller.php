@@ -15,4 +15,10 @@ class Controller extends BaseController
     {
         return 'showRanking';
     }
+
+    public function showTeam(int $teamId):string
+    {
+        return "showTeam $teamId";
+    }
+
 }
