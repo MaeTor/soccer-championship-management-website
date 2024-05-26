@@ -16,10 +16,12 @@ class Controller extends BaseController
     {
         $this->repository = $repository;
     }
-    public function showRanking(): string
+    public function showRanking()
     {
-        return 'showRanking';
+        $ranking = $this->repository->sortedRanking();
+        return $ranking;
     }
+
 
     public function showTeam(int $teamId):string
     {
