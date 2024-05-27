@@ -1,6 +1,23 @@
 <!doctype html>
 <html>
-    <head></head>
+    <head>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
     <body>
         <table>
             <thead>
