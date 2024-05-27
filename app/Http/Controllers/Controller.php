@@ -20,7 +20,7 @@ class Controller extends BaseController
     public function showRanking()
     {
         $ranking = $this->repository->sortedRanking();
-        return $ranking;
+        return view('ranking', ['ranking' => $ranking]);
     }
 
 
