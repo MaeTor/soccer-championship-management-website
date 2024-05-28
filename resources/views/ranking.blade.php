@@ -35,6 +35,20 @@
             </tr>
             </thead>
             <tbody>
+                @foreach ($ranking as $line)
+                    <tr>
+                        <th>{{$line->position}}</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                @endforeach
             <!-- Les lignes des équipes seront insérées ici -->
             </tbody>
         </table>
