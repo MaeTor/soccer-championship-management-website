@@ -40,7 +40,7 @@
                         <th>{{$line->position}}</th>
                         <th>{{$line->name}}</th>
                         <th>{{$line->match_played_count}}</th>
-                        <th></th>
+                        <th>{{$line->match_won_count}}</th>
                         <th></th>
                         <th></th>
                         <th></th>
