@@ -38,7 +38,7 @@
                 @foreach ($ranking as $line)
                     <tr>
                         <th>{{$line->position}}</th>
-                        <th></th>
+                        <th>{{$line->name}}</th>
                         <th></th>
                         <th></th>
                         <th></th>
