@@ -42,7 +42,7 @@
                         <th>{{$line->match_played_count}}</th>
                         <th>{{$line->match_won_count}}</th>
                         <th>{{$line->match_lost_count}}</th>
-                        <th></th>
+                        <th>{{$line->match_drawn_count}}</th>
                         <th></th>
                         <th></th>
                         <th></th>
