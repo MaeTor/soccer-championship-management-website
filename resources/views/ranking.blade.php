@@ -44,7 +44,7 @@
                         <th>{{$line->draw_count}}</th>
                         <th>{{$line->match_lost_count}}</th>
                         <th>{{$line->goal_scored_count}}</th>
-                        <th></th>
+                        <th>{{$line->goal_conceded_count}}</th>
                         <th></th>
                         <th>{{$line->points}}</th>
                     </tr>
