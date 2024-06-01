@@ -52,6 +52,5 @@
             <!-- Les lignes des équipes seront insérées ici -->
             </tbody>
         </table>
-        @json($ranking)
     </body>
 </html>
