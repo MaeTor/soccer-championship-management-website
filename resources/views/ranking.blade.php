@@ -43,9 +43,9 @@
                         <th>{{$line->match_won_count}}</th>
                         <th>{{$line->draw_count}}</th>
                         <th>{{$line->match_lost_count}}</th>
-                        <th>{{$line->goal_scored_count}}</th>
-                        <th>{{$line->goal_conceded_count}}</th>
-                        <th>{{$line->goal_difference_count}}</th>
+                        <th>{{$line->goal_for_count}}</th>
+                        <th>{{$line->goal_against_count}}</th>
+                        <th>{{$line->goal_difference}}</th>
                         <th>{{$line->points}}</th>
                     </tr>
                 @endforeach
