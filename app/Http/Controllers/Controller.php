@@ -27,6 +27,7 @@ class Controller extends BaseController
     public function showTeam(int $teamId)
     {
         $teamMatches = $this->repository->teamMatches($teamId);
+        return view('team',['teamMatches' => $teamMatches]);
     }
 
 }
