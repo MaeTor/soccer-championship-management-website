@@ -27,7 +27,7 @@
     @foreach ($teamMatches as $match)
         <tr>
             <th>{{$match['date']}}</th>
-            <th></th>
+            <th>{{$match['name0']}}</th>
             <th></th>
             <th></th>
             <th></th>
