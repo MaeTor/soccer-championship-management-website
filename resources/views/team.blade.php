@@ -29,7 +29,7 @@
             <th>{{$match['date']}}</th>
             <th>{{$match['name0']}}</th>
             <th>{{$match['score0']}}</th>
-            <th></th>
+            <th>{{$match['score1']}}</th>
             <th></th>
         </tr>
     @endforeach
