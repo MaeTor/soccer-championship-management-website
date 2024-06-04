@@ -23,12 +23,12 @@
     <thead>
     </thead>
     <tbody>
-    <!-- Les lignes des équipes seront insérées ici -->
+    <!-- Les lignes des matchs -->
     @foreach ($teamMatches as $match)
         <tr>
             <th>{{$match['date']}}</th>
             <th>{{$match['name0']}}</th>
-            <th></th>
+            <th>{{$match['score0']}}</th>
             <th></th>
             <th></th>
         </tr>
