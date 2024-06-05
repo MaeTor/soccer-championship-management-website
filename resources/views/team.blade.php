@@ -31,7 +31,7 @@
     @foreach ($teamMatches as $match)
         <tr>
             <th>{{$match['date']}}</th>
-            <th>{{$match['name0']}}</th>
+            <th><a href="{{route('teams.show', ['teamId'=>$match['team0'] ] ) }}">{{$match['name0']}}</a></th>
             <th>{{$match['score0']}}</th>
             <th>{{$match['score1']}}</th>
             <th>{{$match['name1']}}</th>
