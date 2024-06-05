@@ -1,4 +1,8 @@
-<!doctype html>
+    @section('title')
+    Matchs joués par l'équipe
+    @endsection
+
+    <!doctype html>
 <html>
 <head>
     <style>
