@@ -13,5 +13,9 @@
             <a href="/login">Connexion</a>
         </div>
     </div>
+    
+    <div>
+        @yield('content')
+    </div>
     </body>
 </html>
