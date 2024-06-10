@@ -187,13 +187,12 @@ class Repository
         $rowteam =DB::table('ranking')
             ->join('teams','ranking.team_id','=','teams.id')
             ->where('ranking.team_id',$teamId)
-            ->get(['ranking.*', 'teams.name as name'])
-            ->toArray();
+            ->get(['ranking.*', 'teams.name as name']);
 
-        if ( empty($rowteam[0]) ){
+        if ( !$rowteam ){
             throw new Exception('Équipe inconnue');
         }
-        return $rowteam[0];
+        return $rowteam;
     }
 
 
