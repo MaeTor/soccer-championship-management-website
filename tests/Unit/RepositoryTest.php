@@ -115,7 +115,7 @@ class RepositoryTest extends TestCase
     function testTeamMatches(): void
     {
         $this->repository->fillDatabase();
-        $this->assertEquals($this->repository->teamMatches(4), $this->data->expectedMatchesForTeam4());
+        $this->assertEquals($this->repository->teamMatches(4), $this->data->expectedMatchesForTeam());
 
     }
 
