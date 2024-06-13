@@ -8,7 +8,7 @@
     </head>
     <body>
     <div class="border-b shadow-sm p-3 md:px-4 mb-3">
-        <div>
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
             <h5>@yield('title')</h5>
             <nav>
                 <a href="/">Classement</a>
