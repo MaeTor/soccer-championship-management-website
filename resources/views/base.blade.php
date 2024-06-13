@@ -9,7 +9,7 @@
     <body>
     <div class="border-b shadow-sm p-3 md:px-4 mb-3">
         <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <h5>@yield('title')</h5>
+            <h5 class="text-lg font-normal mr-auto">@yield('title')</h5>
             <nav>
                 <a href="/">Classement</a>
             </nav>
