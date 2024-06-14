@@ -11,6 +11,7 @@
         @vite('resources/css/app.css')
     </head>
     <body>
+    @section('content')
         <table>
             <thead>
             <tr>
@@ -44,5 +45,7 @@
             <!-- Les lignes des équipes seront insérées ici -->
             </tbody>
         </table>
+        Classement
+    @endsection
     </body>
 </html>
