@@ -12,7 +12,7 @@
     </head>
     <body>
     @section('content')
-        <table>
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>N°</th>
