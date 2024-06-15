@@ -4,7 +4,7 @@
         Classement
     @endsection
     @section('content')
-        <table class="table table-striped">
+        <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
             <thead class="thead-dark">
             <tr>
                 <th>N°</th>
