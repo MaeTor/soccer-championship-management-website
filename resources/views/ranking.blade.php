@@ -13,7 +13,7 @@
     <body>
     @section('content')
         <table class="table table-striped">
-            <thead>
+            <thead class="thead-dark">
             <tr>
                 <th>N°</th>
                 <th>Équipe</th>
