@@ -5,7 +5,7 @@
     @endsection
     @section('content')
         <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
-            <thead class="thead-dark">
+            <thead class="bg-gray-800 text-white">
             <tr>
                 <th>N°</th>
                 <th>Équipe</th>
