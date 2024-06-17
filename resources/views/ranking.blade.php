@@ -19,7 +19,7 @@
                 <th>PTS</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($ranking as $line)
                     <tr>
                         <th>{{$line->position}}</th>
