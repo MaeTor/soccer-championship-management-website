@@ -21,7 +21,7 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($ranking as $line)
-                    <tr>
+                    <tr class="p-3 text-left">
                         <th>{{$line->position}}</th>
                         <th><a href="{{Route('teams.show', ['teamId' => $line->team_id] ) }}">{{$line->name}}</a></th>
                         <th>{{$line->match_played_count}}</th>

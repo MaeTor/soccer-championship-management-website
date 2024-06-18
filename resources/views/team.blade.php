@@ -1,5 +1,6 @@
+@extends('base')
     @section('title')
-    Matchs joués par l'équipe
+        Matchs joués par l'équipe
     @endsection
 
     <!doctype html>
