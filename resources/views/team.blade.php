@@ -2,7 +2,7 @@
     @section('title')
         Matchs joués par l'équipe
     @endsection
-
+    @section('content')
     <!doctype html>
 <html>
 <head>
@@ -42,3 +42,4 @@
 </table>
 </body>
 </html>
+@endsection
