@@ -1,6 +1,6 @@
 @extends('base')
     @section('title')
-        Matchs joués par l'équipe
+        Matchs de l'équipe
     @endsection
     @section('content')
 <table>
