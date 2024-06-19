@@ -3,27 +3,6 @@
         Matchs joués par l'équipe
     @endsection
     @section('content')
-    <!doctype html>
-<html>
-<head>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th{
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
 <table>
     <thead>
     </thead>
@@ -40,6 +19,4 @@
     @endforeach
     </tbody>
 </table>
-</body>
-</html>
 @endsection
