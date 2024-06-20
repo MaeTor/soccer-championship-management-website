@@ -3,7 +3,7 @@
         Matchs de l'équipe
     @endsection
     @section('content')
-<table>
+        <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
     <thead>
     </thead>
     <tbody>
