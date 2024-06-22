@@ -182,6 +182,10 @@ class Repository
             ->toArray();
     }
 
+    function rankingRow(int $teamId): array{
+        
+    }
+
 
 
 }
