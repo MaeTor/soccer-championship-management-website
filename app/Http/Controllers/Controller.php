@@ -27,7 +27,8 @@ class Controller extends BaseController
     public function showTeam(int $teamId)
     {
         $teamMatches = $this->repository->teamMatches($teamId);
-        return view('team',['teamMatches' => $teamMatches]);
+        $rowteam = $this->repository->rankingRow($teamId);
+        return view('team',['teamMatches' => $teamMatches, 'rowTeam'=>$rowteam]);
     }
 
 }
