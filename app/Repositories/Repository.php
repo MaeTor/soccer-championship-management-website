@@ -182,10 +182,12 @@ class Repository
             ->toArray();
     }
 
-    function rankingRow(int $teamId): array{
+    function rankingRow(int $teamId){
         return DB::table('ranking')
             ->join('teams','ranking.team_id','=','teams.id')
-            ->where('ranking.team_id',$teamId)->toArray();
+            ->where('ranking.team_id',$teamId)
+            ->get(['ranking.*', 'teams.name as name'])
+            ->toArray();
 
     }
 
