@@ -3,6 +3,24 @@
         Matchs de l'équipe
     @endsection
     @section('content')
+        <table>
+            <thead class="bg-gray-800 text-white">
+            <tr>
+                <th>N°</th>
+                <th>Équipe</th>
+                <th>MJ</th>
+                <th>G</th>
+                <th>N</th>
+                <th>P</th>
+                <th>BP</th>
+                <th>BC</th>
+                <th>DB</th>
+                <th>PTS</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
         <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
     <thead>
     </thead>
