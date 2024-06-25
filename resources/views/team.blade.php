@@ -19,6 +19,10 @@
             </tr>
             </thead>
             <tbody>
+            <!-- Les lignes des équipes -->
+            @foreach($rowTeam as $line)
+                
+            @endforeach
             </tbody>
         </table>
         <table class="w-full border border-gray-300 rounded-lg overflow-hidden">
