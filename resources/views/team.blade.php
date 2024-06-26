@@ -21,7 +21,17 @@
             <tbody>
             <!-- Les lignes des équipes -->
             @foreach($rowTeam as $line)
-                
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
             @endforeach
             </tbody>
         </table>
