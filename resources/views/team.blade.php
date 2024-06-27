@@ -19,7 +19,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Les lignes des équipes -->
+            <!-- La ligne de l'équipe -->
             @foreach($rowTeam as $line)
                 <tr>
                     <th>{{$line->position}}</th>
