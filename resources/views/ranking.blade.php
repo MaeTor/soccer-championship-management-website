@@ -23,7 +23,7 @@
                 @foreach ($ranking as $line)
                     <tr class="p-3 text-left">
                         <th>{{$line->position}}</th>
-                        <th><a href="{{Route('teams.show', ['teamId' => $line->team_id] ) }}">{{$line->name}}</a></th>
+                        <th><a href="{{Route('teams.show', ['teamId' => $line->team_id] ) }}" class="text-blue-500">{{$line->name}}</a></th>
                         <th>{{$line->match_played_count}}</th>
                         <th>{{$line->match_won_count}}</th>
                         <th>{{$line->draw_count}}</th>
