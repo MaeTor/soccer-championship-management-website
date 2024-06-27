@@ -46,6 +46,7 @@
             <th>{{$match['date']}}</th>
             <th><a href="{{route('teams.show', ['teamId'=>$match['team0'] ] ) }}" class="text-blue-500">{{$match['name0']}}</a></th>
             <th>{{$match['score0']}}</th>
+            <th>-</th>
             <th>{{$match['score1']}}</th>
             <th><a href="{{route('teams.show', ['teamId'=>$match['team1'] ] )}}" class="text-blue-500">{{$match['name1']}}</a></th>
         </tr>
