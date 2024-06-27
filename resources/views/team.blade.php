@@ -23,7 +23,7 @@
             @foreach($rowTeam as $line)
                 <tr>
                     <th>{{$line->position}}</th>
-                    <th><a href="{{Route('teams.show', ['teamId' => $line->team_id] ) }}">{{$line->name}}</a></th>
+                    <th><a href="{{Route('teams.show', ['teamId' => $line->team_id] ) }}" class="text-blue-500">{{$line->name}}</a></th>
                     <th>{{$line->match_played_count}}</th>
                     <th>{{$line->match_won_count}}</th>
                     <th>{{$line->draw_count}}</th>
@@ -44,10 +44,10 @@
     @foreach ($teamMatches as $match)
         <tr>
             <th>{{$match['date']}}</th>
-            <th><a href="{{route('teams.show', ['teamId'=>$match['team0'] ] ) }}">{{$match['name0']}}</a></th>
+            <th><a href="{{route('teams.show', ['teamId'=>$match['team0'] ] ) }}" class="text-blue-500">{{$match['name0']}}</a></th>
             <th>{{$match['score0']}}</th>
             <th>{{$match['score1']}}</th>
-            <th><a href="{{route('teams.show', ['teamId'=>$match['team1'] ] )}}">{{$match['name1']}}</a></th>
+            <th><a href="{{route('teams.show', ['teamId'=>$match['team1'] ] )}}" class="text-blue-500">{{$match['name1']}}</a></th>
         </tr>
     @endforeach
     </tbody>
