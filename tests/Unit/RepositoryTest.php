@@ -122,6 +122,8 @@ class RepositoryTest extends TestCase
     function testRankingRow(): void
     {
         $this->repository->fillDatabase();
+        $this->repository->updateRanking();
+
     }
 
 
