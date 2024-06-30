@@ -128,8 +128,13 @@ class RepositoryTest extends TestCase
         }
     }
 
+    function testRankingRowThrowsExceptionIfTeamDoesNotExist(): void
+    {
+        $this->repository->fillDatabase();
+    }
 
-}
+
+    }
 
 
 
