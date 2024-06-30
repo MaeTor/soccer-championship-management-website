@@ -123,8 +123,13 @@ class RepositoryTest extends TestCase
     {
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
-
+        foreach ($this->data->expectedSortedRankingWithName() as $row) {
+            $this->assertEquals($this->repository->rankingRow($row['team_id']), $row);
+        }
     }
+
+
+}
 
 
 
