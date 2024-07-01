@@ -133,6 +133,8 @@ class RepositoryTest extends TestCase
         $this->repository->fillDatabase();
         $this->repository->updateRanking();
         $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Équipe inconnue');
+
 
     }
 
