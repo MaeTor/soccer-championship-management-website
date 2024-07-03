@@ -22,7 +22,9 @@ class ControllerTest extends TestCase
                     'points' => 63
                 ]
             ]);
+        });
+        $response = $this->get('/');
 
         }
     }
-}
+
