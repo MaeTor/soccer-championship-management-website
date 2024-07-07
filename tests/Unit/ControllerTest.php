@@ -31,7 +31,8 @@ class ControllerTest extends TestCase
 
     public function testShowTeam()
     {
-        
-    }
+        $this->mock(Repository::class, function ($mock) {
+
+        }
 }
 
