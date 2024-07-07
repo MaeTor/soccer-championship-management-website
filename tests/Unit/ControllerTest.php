@@ -1,6 +1,8 @@
 <?php
 
 namespace Tests\Unit;
+use App\Repositories\Data;
+use App\Repositories\Repository;
 use PHPUnit\Framework\TestCase;
 class ControllerTest extends TestCase
 {
@@ -32,6 +34,7 @@ class ControllerTest extends TestCase
     public function testShowTeam()
     {
         $this->mock(Repository::class, function ($mock) {
+            $data = new Data();
 
         }
 }
