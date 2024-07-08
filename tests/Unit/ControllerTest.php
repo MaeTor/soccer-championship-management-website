@@ -61,6 +61,8 @@ class ControllerTest extends TestCase
                 ]
             ]);
             $response = $this->get('/teams/4');
+            $response->assertStatus(200);
+
 
 
 
