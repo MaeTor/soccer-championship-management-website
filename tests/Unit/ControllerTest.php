@@ -60,6 +60,8 @@ class ControllerTest extends TestCase
                     'name1' => 'Angers'
                 ]
             ]);
+            $response = $this->get('/teams/4');
+
 
 
 
