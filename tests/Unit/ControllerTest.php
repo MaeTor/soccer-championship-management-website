@@ -48,6 +48,19 @@ class ControllerTest extends TestCase
                 'goal_difference' => 14,
                 'points' => 63
             ]);
+            $mock->shouldReceive('teamMatches')->with(4)->once()->andReturn([
+                [
+                    'id' => 7,
+                    'team0' => 3,
+                    'team1' => 18,
+                    'score0' => 3,
+                    'score1' => 5,
+                    'date' => '2048-08-03 00:00:00',
+                    'name0' => 'Lyon',
+                    'name1' => 'Angers'
+                ]
+            ]);
+
 
 
         }
