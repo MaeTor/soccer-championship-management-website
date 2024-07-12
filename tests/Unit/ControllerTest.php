@@ -24,7 +24,7 @@ class ControllerTest extends TestCase
             'goal_difference' => 14,
             'points' => 63
         ]);
-
+        // Injection du mock dans le conteneur d'application de Laravel
         $this->instance(Repository::class, $repositoryMock);
 
         /*
