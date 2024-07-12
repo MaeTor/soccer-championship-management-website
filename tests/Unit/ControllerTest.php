@@ -4,7 +4,7 @@ namespace Tests\Unit;
 use App\Repositories\Data;
 use App\Repositories\Repository;
 use Mockery;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 class ControllerTest extends TestCase
 {
     public function testShowRanking()
@@ -24,6 +24,8 @@ class ControllerTest extends TestCase
             'goal_difference' => 14,
             'points' => 63
         ]);
+
+        $this->instance(Repository::class, $repositoryMock);
 
         /*
         };
