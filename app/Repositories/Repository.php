@@ -182,17 +182,18 @@ class Repository
             ->toArray();
     }
 
-    function rankingRow(int $teamId){
+    function rankingRow(int $teamId)
+    {
+        $rowteam = DB::table('ranking')
+            ->join('teams', 'ranking.team_id', '=', 'teams.id')
+            ->where('ranking.team_id', $teamId)
+            ->first(['ranking.*', 'teams.name as name']); // Utilisation de 'first()' pour un seul enregistrement
 
-        $rowteam =DB::table('ranking')
-            ->join('teams','ranking.team_id','=','teams.id')
-            ->where('ranking.team_id',$teamId)
-            ->first(['ranking.*', 'teams.name as name']); // Utilisation de 'first()' au lieu de 'get()'
-
-        if ( !$rowteam ){
+        if (!$rowteam) {
             throw new Exception('Équipe inconnue');
         }
-        return $rowteam;
+
+        return (array) $rowteam;  // Retourne un tableau associatif unique
     }
 
 
