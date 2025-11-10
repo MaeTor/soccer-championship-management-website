@@ -8,6 +8,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
+
 
 class Controller extends BaseController
 {
@@ -38,6 +40,8 @@ class Controller extends BaseController
 
     public function storeTeam(Request $request)
     {
+        $rules = ['team_name' => ['required', 'min:3', 'max:20', 'unique:teams,name']];
+        $validatedData = $request->validate($rules);
         return $request->input('team_name');
     }
 
