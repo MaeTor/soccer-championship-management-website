@@ -31,4 +31,10 @@ class Controller extends BaseController
         return view('team',['teamMatches' => $teamMatches, 'rowTeam'=>$rowteam]);
     }
 
+    public function createTeam()
+    {
+        return view('team_create');
+    }
+
 }
+
