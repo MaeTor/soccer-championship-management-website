@@ -47,7 +47,7 @@ class Controller extends BaseController
 'team_name.unique' => "Le nom d'équipe existe déjà."
 ];
         $rules = ['team_name' => ['required', 'min:3', 'max:20', 'unique:teams,name']];
-        $validatedData = $request->validate($rules);
+        $validatedData = $request->validate($rules,$messages);
         return $request->input('team_name');
     }
 
