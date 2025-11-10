@@ -3,7 +3,7 @@
         Création d'une équipe
     @endsection
     @section('content')
-        <form @class(['space-y-4']) method="POST">
+        <form @class(['space-y-4']) method="POST" action="{{route('teams.store')}}">
         <div @class(['flex', 'flex-col'])>
             <label for="team_name" @class(['text-sm', 'font-medium', 'text-gray-700', 'mb-1'])>
             Nom de l'équipe
