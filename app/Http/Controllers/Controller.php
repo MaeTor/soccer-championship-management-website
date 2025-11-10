@@ -36,9 +36,9 @@ class Controller extends BaseController
         return view('team_create');
     }
 
-    public function storeTeam()
+    public function storeTeam(Request $request)
     {
-        return 'OK';
+        return $request->input('team_name');
     }
 
 }
