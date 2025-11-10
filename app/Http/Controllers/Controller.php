@@ -40,6 +40,12 @@ class Controller extends BaseController
 
     public function storeTeam(Request $request)
     {
+        $messages = [
+'team_name.required' => "Vous devez saisir un nom d'équipe.",
+'team_name.min' => "Le nom doit contenir au moins :min caractères.",
+'team_name.max' => "Le nom doit contenir au plus :max caractères.",
+'team_name.unique' => "Le nom d'équipe existe déjà."
+];
         $rules = ['team_name' => ['required', 'min:3', 'max:20', 'unique:teams,name']];
         $validatedData = $request->validate($rules);
         return $request->input('team_name');
