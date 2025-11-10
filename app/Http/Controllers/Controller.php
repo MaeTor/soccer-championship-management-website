@@ -36,5 +36,10 @@ class Controller extends BaseController
         return view('team_create');
     }
 
+    public function storeTeam()
+    {
+        return 'OK';
+    }
+
 }
 
