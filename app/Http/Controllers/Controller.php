@@ -61,7 +61,8 @@ class Controller extends BaseController
 
     public function createMatch()
     {
-        return view('match_create');
+        $teams=$this->repository->teams();
+        return view('match_create',['teams'=>$teams]);
     }
     public function storeMatch(Request $request) {
         return 'TODO';
