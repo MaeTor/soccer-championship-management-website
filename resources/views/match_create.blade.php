@@ -6,11 +6,17 @@
     <div class="form-group">
         <label for="team0">Équipe à domicile</label>
         <select class="form-control" id="team0" name="team0">
+            @foreach ($teams as $team)
+            <option value="{{$team['id']}}">{{$team['name']}}</option>
+            @endforeach
         </select>
     </div>
     <div class="form-group">
         <label for="team1">Équipe à l'extérieur</label>
         <select class="form-control" id="team1" name="team1">
+            @foreach ($teams as $team)
+            <option value="{{$team['id']}}">{{$team['name']}}</option>
+            @endforeach
         </select>
     </div>
     <div class="form-group">
