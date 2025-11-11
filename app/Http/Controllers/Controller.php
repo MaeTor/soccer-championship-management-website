@@ -9,6 +9,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Exception;
 
 
 class Controller extends BaseController
@@ -48,15 +49,14 @@ class Controller extends BaseController
 ];
         $rules = ['team_name' => ['required', 'min:3', 'max:20', 'unique:teams,name']];
         $validatedData = $request->validate($rules,$messages);
+        $team = ['name' => $validatedData['team_name']];
         try{
-        $data = [
-    'name' => $validatedData['team_name']
-    ];
-        $this->repository->insertTeam($data);
+        $teamId = $this->repository->insertTeam($team);
         $this->repository->updateRanking();
+        return redirect()->route('teams.show', ['teamId' => $teamId]);
         }catch(Exception $exception){
-        return $request->input('team_name');
-        }
+        return redirect()->route('teams.create')->withErrors("Impossible de créer l'équipe.");
+        } 
     }
 
 }
