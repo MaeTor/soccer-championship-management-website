@@ -65,7 +65,31 @@ class Controller extends BaseController
         return view('match_create',['teams'=>$teams]);
     }
     public function storeMatch(Request $request) {
-        return 'TODO';
+        $rules = [
+'team0' => ['required', 'exists:teams,id'],
+'team1' => ['required', 'exists:teams,id'],
+'date' => ['required', 'date'],
+'time' => ['required', 'date_format:H:i'],
+'score0' => ['required', 'integer', 'between:0,50'],
+'score1' => ['required', 'integer', 'between:0,50']
+];
+        $messages = [
+'team0.required' => 'Vous devez choisir une équipe.',
+'team0.exists' => 'Vous devez choisir une équipe qui existe.',
+'team1.required' => 'Vous devez choisir une équipe.',
+'team1.exists' => 'Vous devez choisir une équipe qui existe.',
+'date.required' => 'Vous devez choisir une date.',
+'date.date' => 'Vous devez choisir une date valide.',
+'time.required' => 'Vous devez choisir une heure.',
+'time.date_format' => 'Vous devez choisir une heure valide.',
+'score0.required' => 'Vous devez choisir un nombre de buts.',
+'score0.integer' => 'Vous devez choisir un nombre de buts entier.',
+'score0.between' => 'Vous devez choisir un nombre de buts entre 0 et 50.',
+'score1.required' => 'Vous devez choisir un nombre de buts.',
+'score1.integer' => 'Vous devez choisir un nombre de buts entier.',
+'score1.between' => 'Vous devez choisir un nombre de buts entre 0 et 50.',
+];
+        $validatedData = $request->validate($rules, $messages);
     }
 }
 
