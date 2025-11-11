@@ -90,6 +90,10 @@ class Controller extends BaseController
 'score1.between' => 'Vous devez choisir un nombre de buts entre 0 et 50.',
 ];
         $validatedData = $request->validate($rules, $messages);
+
+        $date = $validatedData['date'];
+        $time = $validatedData['time'];
+        $datetime = "$date $time";
     }
 }
 
