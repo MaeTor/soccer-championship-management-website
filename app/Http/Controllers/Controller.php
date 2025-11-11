@@ -91,9 +91,17 @@ class Controller extends BaseController
 ];
         $validatedData = $request->validate($rules, $messages);
 
-        $date = $validatedData['date'];
-        $time = $validatedData['time'];
-        $datetime = "$date $time";
+         try {
+            $date = $validatedData['date'];
+            $time = $validatedData['time'];
+            $datetime = "$date $time";
+
+            $this->repository->insertMatch(['team0' => $validatedData['team0'], 'team1' => $validatedData['team1'], 'score0' => $validatedData['score0'], 'score1' => $validatedData['score1'], 'date' => $datetime]);
+            $this->repository->updateRanking();
+            return redirect()->route('ranking.show');
+        } catch (Exception $exception) {
+            return redirect()->route('matches.create')->withErrors("Impossible de créer le match.");
+        }
     }
 }
 
