@@ -16,8 +16,8 @@ Création d'une équipe
         </label>
         <input type="text" id="team_name" class="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900
                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-            name="team_name" aria-describedby="team_name_feedback" @error("team_name") class="border border-red-500 rounded-md px-3 py-2 text-gray-900
-         focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition" @enderror>
+            name="team_name" aria-describedby="team_name_feedback" minlength="3" maxlength="20" required 
+            @error("team_name") class="border border-red-500 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition" @enderror>
     </div>
     @error("team_name")
     <div id="team_name_feedback" class="class=text-sm text-red-600 mt-1">{{ $message }} </div>
