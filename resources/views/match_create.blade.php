@@ -1,7 +1,8 @@
 @extends('base')
 @section('title', 'Création d\'un match')
 @section('content')
-<form method="POST">
+<form method="POST" action="{{route('matches.store')}}">
+    @csrf
     <div class="form-group">
         <label for="team0">Équipe à domicile</label>
         <select class="form-control" id="team0" name="team0">
