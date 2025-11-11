@@ -14,7 +14,7 @@ Création d'une équipe
         <label for="team_name" @class(['text-sm', 'font-medium' , 'text-gray-700' , 'mb-1' ])>
             Nom de l'équipe
         </label>
-        <input type="text" id="team_name" class="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900
+        <input value="{{ old('team_name') }}" type="text" id="team_name" class="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900
                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
             name="team_name" aria-describedby="team_name_feedback" minlength="3" maxlength="20" required 
             @error("team_name") class="border border-red-500 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition" @enderror>
