@@ -59,5 +59,12 @@ class Controller extends BaseController
         } 
     }
 
+    public function createMatch()
+    {
+        return view('match_create');
+    }
+    public function storeMatch(Request $request) {
+        return 'TODO';
+    }
 }
 
