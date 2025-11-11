@@ -48,7 +48,15 @@ class Controller extends BaseController
 ];
         $rules = ['team_name' => ['required', 'min:3', 'max:20', 'unique:teams,name']];
         $validatedData = $request->validate($rules,$messages);
+        try{
+        $data = [
+    'name' => $validatedData['team_name']
+    ];
+        $this->repository->insertTeam($data);
+        $this->repository->updateRanking();
+        }catch(Exception $exception){
         return $request->input('team_name');
+        }
     }
 
 }
