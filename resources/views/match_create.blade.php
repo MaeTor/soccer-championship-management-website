@@ -1,7 +1,7 @@
 @extends('base')
 @section('title', 'Création d\'un match')
 @section('content')
-<form>
+<form method="POST">
     <div class="form-group">
         <label for="team0">Équipe à domicile</label>
         <select class="form-control" id="team0" name="team0">
