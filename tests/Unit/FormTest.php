@@ -33,7 +33,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/teams/create')->post('/teams', []);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
-        $response->assertSessionHasErrors(["team_name"=>"Vous devez saisir un nom d'Ã©quipe."]);
+        $response->assertSessionHasErrors(["team_name"=>"Vous devez saisir un nom d'équipe."]);
     }
 
     public function testStoreTeamRedirectsIfNameIsTooShort()
@@ -58,7 +58,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'Marseille']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
-        $response->assertSessionHasErrors(["team_name"=>"Le nom d'Ã©quipe existe dÃ©jÃ ."]);
+        $response->assertSessionHasErrors(["team_name"=>"Le nom d'équipe existe déjà ."]);
     }
 
     public function testStoreTeamRedirectsIfRepositoryThrowsException() 
@@ -91,7 +91,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
-        $response->assertSessionHasErrors(["team0"=>"Vous devez choisir une Ã©quipe."]);
+        $response->assertSessionHasErrors(["team0"=>"Vous devez choisir une équipe."]);
     }
 
     public function testStoreMatchRedirectsIfTeam0DoesNotExist()
@@ -101,7 +101,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0' => '3', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
-        $response->assertSessionHasErrors(["team0"=>"Vous devez choisir une Ã©quipe qui existe."]);
+        $response->assertSessionHasErrors(["team0"=>"Vous devez choisir une équipe qui existe."]);
     }
 
     public function testStoreMatchRedirectsIfTeam1IsAbsent()
@@ -111,7 +111,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
-        $response->assertSessionHasErrors(["team1"=>"Vous devez choisir une Ã©quipe."]);
+        $response->assertSessionHasErrors(["team1"=>"Vous devez choisir une équipe."]);
     }
 
     public function testStoreMatchRedirectsIfTeam1DoesNotExist()
@@ -121,7 +121,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0' => '2', 'team1' => '3', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
-        $response->assertSessionHasErrors(["team1"=>"Vous devez choisir une Ã©quipe qui existe."]);
+        $response->assertSessionHasErrors(["team1"=>"Vous devez choisir une équipe qui existe."]);
     }
     
     public function testStoreMatchRedirectsIfDateIsAbsent()
