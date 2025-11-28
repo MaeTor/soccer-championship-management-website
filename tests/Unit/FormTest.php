@@ -58,7 +58,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'Marseille']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
-        $response->assertSessionHasErrors(["team_name"=>"Le nom d'équipe existe déjà ."]);
+        $response->assertSessionHasErrors(["team_name"=>"Le nom d'équipe existe déjà."]);
     }
 
     public function testStoreTeamRedirectsIfRepositoryThrowsException() 
