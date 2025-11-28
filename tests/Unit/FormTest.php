@@ -41,7 +41,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'A']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
-        $response->assertSessionHasErrors(["team_name"=>"Le nom doit contenir au moins 3 caractÃ¨res."]);
+        $response->assertSessionHasErrors(["team_name"=>"Le nom doit contenir au moins 3 caractères."]);
     }
 
     public function testStoreTeamRedirectsIfNameIsTooLong() 
@@ -49,7 +49,7 @@ class FormTest extends TestCase
         $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'AAAAAAAAAAAAAAAAAAAAA']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
-        $response->assertSessionHasErrors(["team_name"=>"Le nom doit contenir au plus 20 caractÃ¨res."]);
+        $response->assertSessionHasErrors(["team_name"=>"Le nom doit contenir au plus 20 caractères."]);
     }
 
     public function testStoreTeamRedirectsIfNameAlreadyExists() 
