@@ -14,10 +14,8 @@ class Repository
 {
     /**
      * Creates the database using an SQL script.
-     *
-     * @return void
      */
-    function createDatabase(): void
+    public function createDatabase(): void
     {
         DB::unprepared(file_get_contents('database/build.sql'));
     }
@@ -25,40 +23,47 @@ class Repository
     /**
      * Inserts a team into the database. If an 'id' exists, it is used.
      *
-     * @param array $team The team data.
+     * @param  array  $team The team data.
      * @return int The ID of the inserted team.
+     *
      * @throws Exception if the team cannot be inserted.
      */
-    function insertTeam(array $team): int
+    public function insertTeam(array $team): int
     {
         if (array_key_exists('id', $team)) {
             DB::table('teams')->insert($team);
+
             return $team['id'];
         }
+
         return DB::table('teams')->insertGetId($team);
     }
 
     /**
      * Inserts a match into the database. If an 'id' exists, it is used.
      *
-     * @param array $match The match data.
+     * @param  array  $match The match data.
      * @return int The ID of the inserted match.
+     *
      * @throws Exception if the match cannot be inserted.
      */
-    function insertMatch(array $match): int
+    public function insertMatch(array $match): int
     {
         if (array_key_exists('id', $match)) {
             DB::table('matches')->insert($match);
+
             return $match['id'];
         }
+
         return DB::table('matches')->insertGetId($match);
     }
+
     /**
      * Retrieves all teams from the database.
      *
      * @return array List of teams.
      */
-    function teams(): array
+    public function teams(): array
     {
         return DB::table('teams')->orderBy('id')->get()->map(function ($team) {
             return (array) $team;
@@ -70,19 +75,17 @@ class Repository
      *
      * @return array List of matches.
      */
-    function matches(): array
+    public function matches(): array
     {
         return DB::table('matches')->orderBy('id')->get()->map(function ($match) {
-            return (array)$match;
+            return (array) $match;
         })->toArray();
     }
 
     /**
      * Fills the database with initial data for teams and matches.
-     *
-     * @return void
      */
-    function fillDatabase(): void
+    public function fillDatabase(): void
     {
         $data = new Data();
         foreach ($data->teams() as $team) {
@@ -96,48 +99,50 @@ class Repository
     /**
      * Retrieves a specific team by its ID.
      *
-     * @param int $teamId The ID of the team.
+     * @param  int  $teamId The ID of the team.
      * @return array The team data.
+     *
      * @throws Exception if the team is not found.
      */
-    function team($teamId): array
+    public function team($teamId): array
     {
-            $team =  DB::table('teams')->where('id', $teamId)->get()->toArray();
-            if (empty($team[0])) {
-                throw new Exception('Équipe inconnue');
-            }
-            return (array)$team[0];
+        $team = DB::table('teams')->where('id', $teamId)->get()->toArray();
+        if (empty($team[0])) {
+            throw new Exception('Équipe inconnue');
+        }
+
+        return (array) $team[0];
 
 //        $team = DB::table('teams')
 //            ->where('id', $teamId)
 //            ->first();
 //
 //        return (array) $team;
-
     }
 
     /**
      * Retrieves a specific match by its ID.
      *
-     * @param int $matchId The ID of the match.
+     * @param  int  $matchId The ID of the match.
      * @return array The match data.
+     *
      * @throws Exception if the match is not found.
      */
-    function match($matchId): array
+    public function match($matchId): array
     {
         $match = DB::table('matches')->where('id', $matchId)->get()->toArray();
         if (empty($match[0])) {
             throw new Exception('Match inconnu');
         }
-        return (array)$match[0];
+
+        return (array) $match[0];
     }
 
     /**
      * Updates the ranking table by recalculating rankings based on teams and matches.
-     *
-     * @return void
      */
-    function updateRanking(): void{
+    public function updateRanking(): void
+    {
         DB::table('ranking')->delete();
         $teams = $this->teams();
         $matches = $this->matches();
@@ -147,27 +152,30 @@ class Repository
         DB::table('ranking')->insert($r);
     }
 
-    /**
-     * Retrieves the sorted ranking with team names.
-     *
-     * @return array The sorted ranking.
-     */
-    function sortedRanking(): array
-    {
-        return DB::table('ranking')
+/**
+ * Retrieves the sorted ranking with team names.
+ *
+ * @return array The sorted ranking.
+ */
+public function sortedRanking(): array
+{
+    return DB::table('ranking')
         ->join('teams', 'ranking.team_id', '=', 'teams.id')
-            ->orderby('position')
-            ->get(['ranking.*', 'teams.name as name'])
-            ->toArray();
-    }
+        ->orderBy('position')
+        ->get(['ranking.*', 'teams.name as name'])
+        ->map(function ($item) {
+            return (array) $item; // convertit chaque objet en tableau associatif
+        })
+        ->toArray(); // retourne un tableau d'associatifs
+}
 
     /**
      * Retrieves all matches for a specific team by its ID.
      *
-     * @param int $teamId The ID of the team.
+     * @param  int  $teamId The ID of the team.
      * @return array The list of matches the team is involved in.
      */
-    function teamMatches($teamId)
+    public function teamMatches($teamId)
     {
         return DB::table('matches')
             ->join('teams as t0', 'matches.team0', '=', 't0.id')
@@ -182,20 +190,17 @@ class Repository
             ->toArray();
     }
 
-    function rankingRow(int $teamId)
+    public function rankingRow(int $teamId)
     {
         $rowteam = DB::table('ranking')
             ->join('teams', 'ranking.team_id', '=', 'teams.id')
             ->where('ranking.team_id', $teamId)
             ->first(['ranking.*', 'teams.name as name']); // Utilisation de 'first()' pour un seul enregistrement
 
-        if (!$rowteam) {
+        if (! $rowteam) {
             throw new Exception('Équipe inconnue');
         }
 
         return (array) $rowteam;  // Retourne un tableau associatif unique
     }
-
-
-
 }
