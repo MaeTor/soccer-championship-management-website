@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS ranking;
 DROP TABLE IF EXISTS matches;
 DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE teams(
     id int PRIMARY KEY AUTO_INCREMENT,
@@ -34,3 +35,10 @@ CREATE TABLE ranking(
     FOREIGN KEY (team_id) REFERENCES teams(id),
     UNIQUE(position)
 );
+
+CREATE TABLE users{
+    id int PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL,
+    password_hash VARCHAR(50) NOT NULL,
+    UNIQUE email
+};
