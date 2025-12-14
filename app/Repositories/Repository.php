@@ -203,4 +203,16 @@ public function sortedRanking(): array
 
         return (array) $rowteam;  // Retourne un tableau associatif unique
     }
+
+    function addUser(string $email, string $password): int
+    {
+        $emails = DB::table('users')->where('email', $email)->get()->toArray();
+        if (count($emails) != 0)
+            throw new Exception('Utilisateur inconnu');
+        $passwordHash =  Hash::make($password);
+        return DB::table('users')->insertGetId(['email' => $email, 'password_hash' => $passwordHash]);
+    }
+    
+
+
 }
