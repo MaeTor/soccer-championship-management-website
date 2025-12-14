@@ -137,9 +137,46 @@ class RepositoryTest extends TestCase
         $this->repository->rankingRow(10000);
     }
 
+    function testGetUserThrowsExceptionIfEmailNotExists(): void
+    {
+        $this->repository->addUser('test1@example.com', 'secret1');
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Utilisateur inconnu');
+        $this->repository->getUser('test2@example.com', 'secret1');
+    }
 
+    function testGetUserThrowsExceptionIfPasswordIsIncorrect(): void
+    {
+        $this->repository->addUser('test1@example.com', 'secret1');
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Utilisateur inconnu');
+        $this->repository->getUser('test1@example.com', 'secret2');
+    }
 
+    function testAddUserThrowsExceptionIfEmailAlreadyExists(): void
+    {
+        $this->repository->addUser('test@example.com', 'secret1');
+        $this->expectException(Exception::class);
+        $this->repository->addUser('test@example.com', 'secret2');
+    }
+    
+    function testChangePassword(): void
+    {
+        $this->repository->addUser('test@example.com', 'secret1');
+        $this->repository->changePassword('test@example.com', 'secret1', 'secret2');
+        $user = $this->repository->getUser('test@example.com', 'secret2');
+        $this->assertEquals($user, ['id'=>1, 'email'=> 'test@example.com']);
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Utilisateur inconnu');
+        $user = $this->repository->getUser('test@example.com', 'secret1');
+    }
 
+    function testChangePasswordThrowsExceptionIfOldPasswordIsIncorrect(): void {
+        $this->repository->addUser('test@example.com', 'secret1');
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Utilisateur inconnu');
+        $this->repository->changePassword('test@example.com', 'secret2', 'secret1');
+    }
 
 
     }
