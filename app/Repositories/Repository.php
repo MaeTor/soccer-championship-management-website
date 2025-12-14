@@ -225,6 +225,13 @@ public function sortedRanking(): array
         return DB::table('users')->where('email', $email)->get(['id', 'email'])->toArray()[0];
     }
     
+    function changePassword(string $email, string $oldPassword, string $newPassword): void
+    {
+        $oldPasswordHash = DB::table('users')->where('email', $email)->get()->toArray()[0]["password_hash"];
+        if (!(Hash::check($oldPassword, $oldPasswordHash)))
+            throw new Exception('Utilisateur inconnu');
+        DB::table('users')->where('email', $email)->update(['password_hash' => Hash::make($newPassword)]);
+    }
 
 
 }
