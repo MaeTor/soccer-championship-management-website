@@ -39,6 +39,6 @@ CREATE TABLE ranking(
 CREATE TABLE users(
     id int PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) NOT NULL,
-    password_hash VARCHAR(50) NOT NULL,
+    password_hash VARCHAR(256) NOT NULL,
     UNIQUE(email)
 );
