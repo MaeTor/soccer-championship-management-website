@@ -212,6 +212,18 @@ public function sortedRanking(): array
         $passwordHash =  Hash::make($password);
         return DB::table('users')->insertGetId(['email' => $email, 'password_hash' => $passwordHash]);
     }
+
+    function getUser(string $email, string $password): array
+    {
+        $user = DB::table('users')->where('email', $email)->get()->toArray();
+        if (count($user) == 0)
+            throw new Exception('Utilisateur inconnu');
+        
+        $passwordHash = DB::table('users')->where('email', $email)->get()->toArray()[0]["password_hash"];
+        if (!(Hash::check($password, $passwordHash)))
+            throw new Exception('Utilisateur inconnu');
+        return DB::table('users')->where('email', $email)->get(['id', 'email'])->toArray()[0];
+    }
     
 
 
