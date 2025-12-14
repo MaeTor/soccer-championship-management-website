@@ -221,15 +221,27 @@ public function sortedRanking(): array
         if (count($user) == 0)
             throw new Exception('Utilisateur inconnu');
         
-        $passwordHash = DB::table('users')->where('email', $email)->get()->toArray()[0]["password_hash"];
+        $passwordHash = DB::table('users')->where('email', $email)->get()
+        ->map(function ($item) {
+                return (array) $item;
+            })
+        ->toArray()[0]["password_hash"];
         if (!(Hash::check($password, $passwordHash)))
             throw new Exception('Utilisateur inconnu');
-        return DB::table('users')->where('email', $email)->get(['id', 'email'])->toArray()[0];
+        return DB::table('users')->where('email', $email)->get(['id', 'email'])
+        ->map(function ($item) {
+                return (array) $item;
+            })
+        ->toArray()[0];
     }
     
     function changePassword(string $email, string $oldPassword, string $newPassword): void
     {
-        $oldPasswordHash = DB::table('users')->where('email', $email)->get()->toArray()[0]["password_hash"];
+        $oldPasswordHash = DB::table('users')->where('email', $email)->get()
+        ->map(function ($item) {
+                return (array) $item;
+            })
+        ->toArray()[0]["password_hash"];
         if (!(Hash::check($oldPassword, $oldPasswordHash)))
             throw new Exception('Utilisateur inconnu');
         DB::table('users')->where('email', $email)->update(['password_hash' => Hash::make($newPassword)]);
