@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE teams(
     id int PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL
+    `name` VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE matches(
@@ -14,7 +14,7 @@ CREATE TABLE matches(
     team1  int NOT NULL,
     score0 int NOT NULL,
     score1 int NOT NULL,
-    date   DATETIME,
+    `date`   DATETIME,
     FOREIGN KEY (team0) REFERENCES teams(id),
     FOREIGN KEY (team1) REFERENCES teams(id),
     UNIQUE (team0, team1),
@@ -36,9 +36,9 @@ CREATE TABLE ranking(
     UNIQUE(position)
 );
 
-CREATE TABLE users{
+CREATE TABLE users(
     id int PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) NOT NULL,
     password_hash VARCHAR(50) NOT NULL,
-    UNIQUE email
-};
+    UNIQUE(email)
+);
