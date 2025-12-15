@@ -55,7 +55,7 @@ class Controller extends BaseController
             $this->repository->updateRanking();
 
             return redirect()->route('teams.show', ['teamId' => $teamId]);
-        } catch(Exception $exception) {
+        } catch (Exception $exception) {
             return redirect()->route('teams.create')->withErrors("Impossible de créer l'équipe.");
         }
     }
@@ -107,5 +107,31 @@ class Controller extends BaseController
         } catch (Exception $exception) {
             return redirect()->route('matches.create')->withErrors('Impossible de créer le match.');
         }
+    }
+
+    public function showLoginForm()
+    {
+        return view('login');
+    }
+
+    public function login(Request $request, Repository $repository)
+    {
+        $rules = [
+            'email' => ['required', 'email', 'exists:users,email'],
+            'password' => ['required'],
+        ];
+        $messages = [
+            'email.required' => 'Vous devez saisir un e-mail.',
+            'email.email' => 'Vous devez saisir un e-mail valide.',
+            'email.exists' => "Cet utilisateur n'existe pas.",
+            'password.required' => 'Vous devez saisir un mot de passe.',
+        ];
+        $validatedData = $request->validate($rules, $messages);
+        try {
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->withErrors('Impossible de vous authentifier.');
+        }
+
+        return redirect()->route('ranking.show');
     }
 }
