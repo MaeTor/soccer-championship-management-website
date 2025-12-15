@@ -70,6 +70,6 @@
         </div>
         @enderror
     </div>
-    <button type="submit" class="btn btn-primary">Soumettre</button>
+    <button type="submit" class="btn-primary">Soumettre</button>
 </form>
 @endsection
