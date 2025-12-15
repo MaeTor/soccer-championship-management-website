@@ -128,6 +128,8 @@ class Controller extends BaseController
         ];
         $validatedData = $request->validate($rules, $messages);
         try {
+            // TODO: Verify the user's credentials using $repository
+            // TODO: Authenticate the user and start the session
         } catch (Exception $e) {
             return redirect()->back()->withInput()->withErrors('Impossible de vous authentifier.');
         }
