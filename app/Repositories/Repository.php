@@ -210,7 +210,7 @@ public function sortedRanking(): array
     {
         $emails = DB::table('users')->where('email', $email)->get()->toArray();
         if (count($emails) != 0)
-            throw new Exception('Utilisateur inconnu');
+            throw new Exception('Un utilisateur avec cet e-mail existe déjà');
         $passwordHash =  Hash::make($password);
         return DB::table('users')->insertGetId(['email' => $email, 'password_hash' => $passwordHash]);
     }

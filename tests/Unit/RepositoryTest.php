@@ -157,6 +157,7 @@ class RepositoryTest extends TestCase
     {
         $this->repository->addUser('test@example.com', 'secret1');
         $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Un utilisateur avec cet e-mail existe déjà');
         $this->repository->addUser('test@example.com', 'secret2');
     }
     
