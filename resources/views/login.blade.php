@@ -2,6 +2,7 @@
 @section('title', 'Authentification')
 @section('content')
 <form method="POST" action="{{route('login.post')}}" >
+@csrf
 @if ($errors->any())
 <div class="alert-warning">
     Vous n'avez pas pu être authentifié &#9785;
