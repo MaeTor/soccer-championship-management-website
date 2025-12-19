@@ -21,7 +21,8 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($ranking as $line)
-                    <tr class="p-3 text-left">
+                    <tr class=" @if(Cookie::get('followed_team')==$line['team_id']) bg-blue-100 text-gray-900 @endif">
+
                         <th>{{$line['position']}}</th>
                         <th><a href="{{Route('teams.show', ['teamId' => $line['team_id']] ) }}" class="text-blue-500">{{$line['name']}}</a></th>
                         <th>{{$line['match_played_count']}}</th>
