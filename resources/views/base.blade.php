@@ -16,7 +16,7 @@
                 <a href="/" class="px-2 text-gray-800 hover:text-gray-600">Classement</a>
             </nav>
             @if (session()->has('user'))
-            <form method="POST">
+            <form method="POST" action="{{route('logout')}}">
                 <div class="inline-flex flex-col sm:flex-row rounded-md shadow-sm">
                     <a class="btn-outline-danger" href="{{route('teams.create')}}">Créer une
                         équipe</a>

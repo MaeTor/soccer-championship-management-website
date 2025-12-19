@@ -145,4 +145,12 @@ class Controller extends BaseController
     {
         return redirect()->route('ranking.show')->cookie('followed_team', $teamId);
     }
+
+    public function logout(Request $request)
+    {
+
+        $request->session()->forget('user');
+
+        return redirect()->route('ranking.show');
+    }
 }
