@@ -129,6 +129,9 @@ class Controller extends BaseController
         $validatedData = $request->validate($rules, $messages);
         try {
             // TODO 1: Throw an exception if the user's password is incorrect
+            $email = $validatedData['email'];
+            $password = $validatedData['password'];
+            $currentUser = $repository->getUser($email,$password);
             // TODO 2: Remember the user's authentication
         } catch (Exception $e) {
             return redirect()->back()->withInput()->withErrors('Impossible de vous authentifier.');
