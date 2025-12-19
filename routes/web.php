@@ -31,3 +31,5 @@ Route::post('/matches', [Controller::class, 'storeMatch'])->name('matches.store'
 
 Route::get('/login', [Controller::class, 'showLoginForm'])->name('login');
 Route::post('/login', [Controller::class, 'login'])->name('login.post');
+
+Route::get('/teams/{teamId}/follow', [Controller::class, 'followTeam'])->where('teamId','[0-9]+')->name('teams.follow');
