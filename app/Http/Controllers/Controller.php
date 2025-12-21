@@ -129,7 +129,7 @@ class Controller extends BaseController
         $validatedData = $request->validate($rules, $messages);
         try {
             // TODO 1: Throw an exception if the user's password is incorrect
-            $repository->getUser($validatedData['email'], $validatedData['password']);
+            $currentUser = $repository->getUser($validatedData['email'], $validatedData['password']);
             // TODO 2: Remember the user's authentication
             $request->session()->put('user', $currentUser);
         } catch (Exception $e) {
