@@ -34,13 +34,20 @@ class Controller extends BaseController
         return view('team', ['teamMatches' => $teamMatches, 'rowTeam' => $rowteam]);
     }
 
-    public function createTeam()
+    public function createTeam(Request $request)
     {
+        if (! $request->session()->has('user')) {
+            return redirect(route('login'));
+        }
+
         return view('team_create');
     }
 
     public function storeTeam(Request $request)
     {
+        if (! $request->session()->has('user')) {
+            return redirect(route('login'));
+        }
         $messages = [
             'team_name.required' => "Vous devez saisir un nom d'équipe.",
             'team_name.min' => 'Le nom doit contenir au moins :min caractères.',
@@ -60,8 +67,11 @@ class Controller extends BaseController
         }
     }
 
-    public function createMatch()
+    public function createMatch(Request $request)
     {
+        if (! $request->session()->has('user')) {
+            return redirect(route('login'));
+        }
         $teams = $this->repository->teams();
 
         return view('match_create', ['teams' => $teams]);
@@ -69,6 +79,9 @@ class Controller extends BaseController
 
     public function storeMatch(Request $request)
     {
+        if (! $request->session()->has('user')) {
+            return redirect(route('login'));
+        }
         $rules = [
             'team0' => ['required', 'exists:teams,id'],
             'team1' => ['required', 'exists:teams,id'],
