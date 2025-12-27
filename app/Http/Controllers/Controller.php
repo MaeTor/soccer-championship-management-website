@@ -164,4 +164,9 @@ class Controller extends BaseController
 
         return redirect()->route('ranking.show');
     }
+
+        public function showPasswordForm()
+    {
+        return view('password_change');
+    }
 }
