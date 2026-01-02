@@ -17,15 +17,19 @@
             </nav>
             @if (session()->has('user'))
             <form method="POST" action="{{route('logout')}}">
+                @csrf
                 <div class="inline-flex flex-col sm:flex-row rounded-md shadow-sm">
                     <a class="btn-outline-danger" href="{{route('teams.create')}}">Créer une équipe</a>
                     <a class="btn-outline-danger" href="{{route('matches.create')}}">Ajouter un match</a>
-                    <span class="btn-primary text-gray-400 cursor-not-allowed select-none">{{ session()->get('user')['email'] }} </span>
-                    <button type="submit" class="border border-blue-500 text-blue-500 px-4 py-2 rounded-sm hover:bg-blue-500 hover:text-white transition-colors">Déconnexion</a>
+                    <span class="btn-primary text-gray-400 cursor-not-allowed select-none">{{
+                        session()->get('user')['email'] }} </span>
+                    <button type="submit"
+                        class="border border-blue-500 text-blue-500 px-4 py-2 rounded-sm hover:bg-blue-500 hover:text-white transition-colors">Déconnexion</a>
                 </div>
             </form>
             @else
-            <a class="border border-blue-500 text-blue-500 px-4 py-2 rounded-sm hover:bg-blue-500 hover:text-white transition-colors" href="/login">Connexion</a>
+            <a class="border border-blue-500 text-blue-500 px-4 py-2 rounded-sm hover:bg-blue-500 hover:text-white transition-colors"
+                href="/login">Connexion</a>
             @endif
         </div>
     </div>
