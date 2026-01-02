@@ -247,5 +247,16 @@ public function sortedRanking(): array
         DB::table('users')->where('email', $email)->update(['password_hash' => Hash::make($newPassword)]);
     }
 
+    function checkOldPassword(string $email, string $input):bool{
+        $currentPasswordHash = DB::table('users')->where('email', $email)->get()
+        ->map(function ($item) {
+                return (array) $item;
+            })
+        ->toArray()[0]["password_hash"];
+        if(Hash::check($input,$currentPasswordHash) == $currentPasswordHash)
+            return True;
+        return False;
+    }
+
 
 }
