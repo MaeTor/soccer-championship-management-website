@@ -37,3 +37,4 @@ Route::get('/teams/{teamId}/follow', [Controller::class, 'followTeam'])->where('
 Route::post('/', [Controller::class, 'logout'])->name('logout');
 
 Route::get('/change-password', [Controller::class, 'showPasswordForm'])->name('change.password');
+Route::post('/change-password', [Controller::class, 'updatePassword'])->name('update.password');

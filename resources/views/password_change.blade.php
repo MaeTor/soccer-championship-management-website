@@ -3,7 +3,7 @@
 Créer un mot de passe
 @endsection
 @section('content')
-<form @class(['space-y-4']) method="POST">
+<form @class(['space-y-4']) method="POST" action="{{ route('update.password') }}">
     @csrf
     @if ($errors->any())
     <div class="alert-warning">

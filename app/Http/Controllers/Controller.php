@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Validator;
 
 class Controller extends BaseController
 {
@@ -165,8 +166,62 @@ class Controller extends BaseController
         return redirect()->route('ranking.show');
     }
 
-        public function showPasswordForm()
+    public function showPasswordForm()
     {
         return view('password_change');
+    }
+
+    public function updatePassword(Request $request, Repository $repository)
+    {
+        $currentUser = $request->session()->get('user');
+
+        if (! $currentUser) {
+            return redirect()->route('login');
+        }
+
+        $rules = [
+            'old_password' => ['required'],
+            'new_password' => ['required', 'min:5'],
+            'repeat_new_password' => ['required', 'same:new_password'],
+        ];
+
+        $messages = [
+            'old_password.required' => 'Veuillez saisir votre mot de passe actuel.',
+            'new_password.required' => 'Veuillez saisir un nouveau mot de passe.',
+            'new_password.min' => 'Le nouveau mot de passe doit contenir au moins :min caractères.',
+            'repeat_new_password.required' => 'Veuillez confirmer le nouveau mot de passe.',
+            'repeat_new_password.same' => 'Les deux mots de passe ne correspondent pas.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        /**
+         * Conditional validation:
+         * old_password is only considered valid if checkOldPassword() returns true
+         */
+        $validator->after(function ($validator) use ($repository, $currentUser, $request) {
+            if (! $repository->checkOldPassword($currentUser['email'], $request->input('old_password'))) {
+                $validator->errors()->add(
+                    'old_password',
+                    'Le mot de passe actuel est incorrect.'
+                );
+            }
+        });
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput([]); // ❗ clears old input
+        }
+
+        // Update password
+        $repository->changePassword(
+            $currentUser['email'],
+            $request->input('old_password'),
+            $request->input('new_password')
+        );
+
+        return redirect('/');
     }
 }
