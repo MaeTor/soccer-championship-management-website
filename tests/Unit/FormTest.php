@@ -17,20 +17,31 @@ class FormTest extends TestCase
         $this->repository->createDatabase();
     }
 
+    protected function authenticatedSession(): array
+{
+    return [
+        'user' => [
+            'id' => 1,
+            'email' => 'test@test.com',
+        ],
+    ];
+}
+
     public function testStoreTeam()
     {
+
         $this->mock(Repository::class, function ($mock) {
             $mock->shouldReceive('insertTeam')->with(['name' => 'Marseille'])->once()->andReturn(1);
             $mock->shouldReceive('updateRanking')->once();
         });
-        $response = $this->post('/teams', ['team_name' => 'Marseille']);
+        $response = $this->withSession($this->authenticatedSession())->post('/teams', ['team_name' => 'Marseille']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/1');
     }
 
     public function testStoreTeamRedirectsIfNameIsAbsent()
     {
-        $response = $this->withHeader('Referer', '/teams/create')->post('/teams', []);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/teams/create')->post('/teams', []);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
         $response->assertSessionHasErrors(["team_name"=>"Vous devez saisir un nom d'équipe."]);
@@ -38,7 +49,7 @@ class FormTest extends TestCase
 
     public function testStoreTeamRedirectsIfNameIsTooShort()
     {
-        $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'A']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'A']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
         $response->assertSessionHasErrors(["team_name"=>"Le nom doit contenir au moins 3 caractères."]);
@@ -46,6 +57,7 @@ class FormTest extends TestCase
 
     public function testStoreTeamRedirectsIfNameIsTooLong() 
     {
+        $response = $this->withSession($this->authenticatedSession());
         $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'AAAAAAAAAAAAAAAAAAAAA']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
@@ -55,7 +67,7 @@ class FormTest extends TestCase
     public function testStoreTeamRedirectsIfNameAlreadyExists() 
     {    
         $this->repository->insertTeam(['name' => 'Marseille']);
-        $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'Marseille']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'Marseille']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
         $response->assertSessionHasErrors(["team_name"=>"Le nom d'équipe existe déjà."]);
@@ -66,7 +78,7 @@ class FormTest extends TestCase
         $this->mock(Repository::class, function ($mock) {
             $mock->shouldReceive('insertTeam')->andThrow(new Exception(""));
         });
-        $response = $this->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'Marseille']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/teams/create')->post('/teams', ['team_name' => 'Marseille']);
         $response->assertStatus(302);
         $response->assertRedirect('/teams/create');
     }
@@ -79,13 +91,15 @@ class FormTest extends TestCase
             $mock->shouldReceive('insertMatch')->with(['team0' => 1, 'team1' => 2, 'date'=>'2048-10-05 10:22', 'score0'=>2, 'score1'=>4])->once()->andReturn(1);
             $mock->shouldReceive('updateRanking')->once();
         });
-        $response = $this->post('/matches', ['team0' => '1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->post('/matches', ['team0' => '1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/');
     }
 
     public function testStoreMatchRedirectsIfTeam0IsAbsent()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
@@ -96,6 +110,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfTeam0DoesNotExist()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0' => '3', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
@@ -106,6 +122,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfTeam1IsAbsent()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
@@ -116,6 +134,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfTeam1DoesNotExist()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0' => '2', 'team1' => '3', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
@@ -126,6 +146,8 @@ class FormTest extends TestCase
     
     public function testStoreMatchRedirectsIfDateIsAbsent()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
@@ -136,6 +158,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfDateIsNotValid()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'aaa', 'time'=>'10:22', 'score0'=>'2', 'score1'=>'4']);
@@ -148,7 +172,7 @@ class FormTest extends TestCase
     {
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
-        $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'score0'=>'2', 'score1'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'score0'=>'2', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
         $response->assertSessionHasErrors(["time"=>"Vous devez choisir une heure."]);
@@ -158,7 +182,7 @@ class FormTest extends TestCase
     {
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
-        $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'aaa', 'score0'=>'2', 'score1'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'aaa', 'score0'=>'2', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
         $response->assertSessionHasErrors(["time"=>"Vous devez choisir une heure valide."]);
@@ -168,7 +192,7 @@ class FormTest extends TestCase
     {
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
-        $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score1'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
         $response->assertSessionHasErrors(["score0"=>"Vous devez choisir un nombre de buts."]);
@@ -178,7 +202,7 @@ class FormTest extends TestCase
     {
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
-        $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'a', 'score1'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'a', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
         $response->assertSessionHasErrors(["score0"=>"Vous devez choisir un nombre de buts entier."]);
@@ -188,7 +212,7 @@ class FormTest extends TestCase
     {
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
-        $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'-1', 'score1'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'-1', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
         $response->assertSessionHasErrors(["score0"=>"Vous devez choisir un nombre de buts entre 0 et 50."]);
@@ -198,7 +222,7 @@ class FormTest extends TestCase
     {
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
-        $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'51', 'score1'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'51', 'score1'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
         $response->assertSessionHasErrors(["score0"=>"Vous devez choisir un nombre de buts entre 0 et 50."]);
@@ -208,7 +232,7 @@ class FormTest extends TestCase
     {
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
-        $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'4']);
+        $response = $this->withSession($this->authenticatedSession())->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'4']);
         $response->assertStatus(302);
         $response->assertRedirect('/matches/create');
         $response->assertSessionHasErrors(["score1"=>"Vous devez choisir un nombre de buts."]);
@@ -216,6 +240,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfScore1IsNotInteger()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'4', 'score1'=>'a']);
@@ -226,6 +252,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfScore1IsNegative()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'5', 'score1'=>'-1']);
@@ -236,6 +264,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfScore1IsTooLarge()
     {
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $response = $this->withHeader('Referer', '/matches/create')->post('/matches', ['team0'=>'1', 'team1' => '2', 'date'=>'2048-10-05', 'time'=>'10:22', 'score0'=>'5', 'score1'=>'51']);
@@ -246,6 +276,8 @@ class FormTest extends TestCase
 
     public function testStoreMatchRedirectsIfRepositoryThrowsException() 
     {    
+        
+        $response = $this->withSession($this->authenticatedSession());
         $this->repository->insertTeam(['name' => 'Marseille']);
         $this->repository->insertTeam(['name' => 'Paris']);
         $this->mock(Repository::class, function ($mock) {
